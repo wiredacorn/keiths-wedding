@@ -1,0 +1,33 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.bg-error {
+    /*background-color: #ffdbdb;*/
+    box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) #ff6161;
+}
+
+.invisible {
+    visibility: hidden;
+}
+.visible {
+    visibility: visible;
+}
+@media screen and (max-width:1023px) {
+    .large-show {
+        display:none!important;
+    }
+}
+@media screen and (min-width:1024px) {
+    .large-hide {
+        display:none!important;
+    }
+}
+
+* {
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}

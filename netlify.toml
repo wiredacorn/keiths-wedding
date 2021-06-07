@@ -1,0 +1,64 @@
+[build]
+  publish = "_site"
+  command = "npm run build-prod"
+
+[build-dev]
+  command = "npm run build-dev"
+  framework = "#custom"
+  targetPort = 8888
+
+[build-prod]
+  command = "npm run build-prod"
+  framework = "#custom"
+  targetPort = 8888
+
+
+
+
+[dev]
+  command = "npm run serve"
+  framework = "#custom"
+  targetPort = 8888
+
+# same as dev command
+[serve-dev]
+  command = "npm run serve-dev"
+  framework = "#custom"
+  targetPort = 8888
+
+[serve-prod]
+  command = "npm run serve-prod"
+  framework = "#custom"
+  targetPort = 8888
+
+
+
+
+# REDIRECT and HEADERS examples
+
+# Redirect rule example
+# For more information see:- https://www.netlify.com/docs/netlify-toml-reference/
+
+#[[redirects]]
+#  from = "/*"
+#  to = "/blog/:splat"
+
+# The default HTTP status code is 301, but you can define a different one e.g.
+# status = 302
+
+# Headers rule example
+# For more information see:- https://www.netlify.com/docs/netlify-toml-reference/
+
+#[[headers]]
+#   Define which paths this specific [[headers]] block will cover.
+#   for = "/*"
+
+#[headers.values]
+#   X-Frame-Options = "DENY"
+#   X-XSS-Protection = "1; mode=block"
+#   Content-Security-Policy = "frame-ancestors https://www.facebook.com"
+
+# Redirects and headers are GLOBAL for all builds – they do not get scoped to
+# contexts no matter where you define them in the file.
+# For context-specific rules, use _headers or _redirects files, which are
+# applied on a PER-DEPLOY basis.

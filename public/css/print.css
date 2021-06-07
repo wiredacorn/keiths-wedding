@@ -1,0 +1,40 @@
+/* Print Settings */
+@media print {
+    @page {
+        size: A4 landscape;
+        margin:0px;
+    }
+    #__layout:last-child {
+        page-break-after: always;
+    }
+    html {
+        max-height:100vh;
+        max-width:100vw;
+        width: 297mm;
+        height: 210mm;
+    }
+    body {
+        height: auto;
+        }
+    body {
+        margin:20px;
+    }
+    .print-hidden {
+        display:none;
+    }
+    .print-block {
+        display:block;
+    }
+    .print-flex {
+        display:flex;
+    }
+    .print-inline {
+        display:inline;
+    }
+}
+* {
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    
+}

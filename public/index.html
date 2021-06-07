@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FODS ROI Calculator</title>
+    <script src="js/app.js"></script>
+    <link href="build/tailwind.css" rel="stylesheet" type="text/css">
+    <link href="css/print.css" rel="stylesheet" type="text/css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  </head>
+  <body onUnload="clearForm();">
+    <main>
+      <header>
+        <!-- Navigation -->
+
+        <nav class="print:hidden" style="background-color:rgb(243,243,244)">
+          <div class="max-w-screen-2xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex sm:flex-wrap items-center justify-between h-16">
+              <!-- Logo -->
+              <div class="flex-1 flex items-left sm:items-center justify-left sm:items-stretch sm:justify-start">
+                <div class="sm:flex-shrink-0 flex items-center">
+                  <img class="block h-10 w-auto" src="img/logo.png" alt="Workflow">
+                </div>
+                <div class="sm:block sm:ml-6 content-center">
+                  <h1 class="h-16 sm:h-10 flex align-center justify-center content-center items-center py-5 text-lg font-medium leading-6 text-gray-900">
+                    ROI Calculator
+                  </h1>
+                </div>
+              </div>
+              <!-- Links -->
+              <div class="flex items-center justify-center sm:items-stretch sm:justify-end">
+                <a href="https://getfods.com" class="hidden md:flex text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                  FODS
+                </a>
+                <a href="https://getfods.com/contractor" class="hidden sm:flex text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                  Contractor Resources
+                </a>
+                <a href="tel:8442003637" class="text-gray-500 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                  (844) 200-3637
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!---  End Navigation  -->
+
+      <div class="max-w-screen-2xl mx-auto px-2 py-10 sm:px-6 lg:px-8">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div name="sidebar" class="md:col-span-1">
+            <div class="px-4 sm:px-0">
+              <h3 class="py-5 text-lg font-medium leading-6 text-gray-900">Suggested FODS Alternative Layout</h3>
+              <p class="mt-1 text-sm text-gray-600">
+                Below is an example of the FODS layout which is commonly used as an alternative for your chosen stone construction entrance length.
+              </p>
+            </div>
+            <div>
+              <p id="layout-name" class="text-center mt-5 font-medium leading-6 text-gray-900">1x5T</p>
+              <img id="layout" class="text-center m-auto h-72" src="img/1x5T.jpg">
+              <img style="display:none" class="hidden" src="img/1x4.jpg">
+              <img style="display:none" class="hidden" src="img/1x7T.jpg">
+            </div>
+            <div class="hidden print-block rounded-md shadow px-4 py-5 bg-gray-100">
+              <h3 class="font-bold">FODS, LLC</h3>
+              <p>Technical Support: (844) 200-3637</p>
+              <p>Website: www.getfods.com</p>
+              <p>Calculator: calculator.getfods.com</p>
+            </div>
+
+          </div>
+          <!-- Main Content Wrapper -->
+          <div name="main-content-wrapper" class="mt-5 md:mt-0 md:col-span-2 shadow rounded-md sm:overflow-hidden">
+
+            <!-- Form View -->
+            <form id="calculator-form" action="#" method="POST" class="visible">
+              <div class="">
+                <div class="px-4 py-5">
+                  <h3 name="form-title" class="text-lg font-medium leading-6 text-gray-900">Please enter your construction entrance costs to calculate your ROI.</h3>
+                  <p class="block text-sm font-medium text-gray-700">Default values based on national averages.</p>
+                </div>
+                <!--- Length Radio Buttons full width -->
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                  <div class="grid grid-cols-2 gap-6">
+                    <div class="col-span-3 sm:col-span-1 bg-white space-y-6 sm:p-6">
+                      <div class="">
+                        <legend class="block text-sm font-medium text-gray-700">Entrance Length</legend>
+                        <p class="text-sm text-gray-500">Select the length of the entrance you typically use on your projects.</p>
+                      </div>
+                      <div class="col-auto gap-0 flex-row mt-5 md:mt-0 md:col-span-1">
+                        <a href="#" id="length-35" onClick="len35(event)" class="transition-shadow inline-flex mt-1 justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg">35'</a>
+                        <a href="#" id="length-50" onClick="len50(event)" class="transition-shadow hover:transition-shadow duration-100 bg-fodsYellow mt-1 inline-flex justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg">50'</a>
+                        <a href="#" id="length-70" onClick="len70(event)" class="inline-flex mt-1 justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg">70'</a>
+                        <a href="#" id="length-100" onClick="len100(event)" class="inline-flex mt-1 justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg">100'</a>
+                      </div>
+                      <fieldset id="entrance-length" class="hidden">
+                        <div class="mt-4 space-y-4">
+                          <div class="flex items-center">
+                            <input id="entrance-length-35" value="35" name="entrance_length" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="entrance_length_35" class="ml-3 block text-sm font-medium text-gray-700">
+                              35'
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="entrance-length-50" value="50" checked="checked" name="entrance_length" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="entrance_length_50" class="ml-3 block text-sm font-medium text-gray-700">
+                              50'
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="entrance-length-70" value="70" name="entrance_length" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="entrance_length_70" class="ml-3 block text-sm font-medium text-gray-700">
+                              70'
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="entrance-length-100" value="100" name="entrance_length" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="entrance_length_100" class="ml-3 block text-sm font-medium text-gray-700">
+                              100'
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!--- Frequency Radio Buttons -->
+                    <div class="col-span-3 sm:col-span-1 bg-white space-y-6 sm:p-6">
+                      <div>
+                        <legend class="block text-sm font-medium text-gray-700">Refresh Frequency</legend>
+                        <p class="text-sm text-gray-500">Select how often you typically refresh your entrance.</p>
+                      </div>
+                      <div class="flex-row mt-5 md:mt-0 md:col-span-1">
+                        <a href="#" id="freq-Weekly" onClick="freqWeekly(event)" class="inline-flex mt-1 justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md outline-gray-500 focus:outline-none hover:shadow-lg border-0">Weekly</a>
+                        <a href="#" id="freq-BiMonthly" onClick="freqBiMonthly(event)" class="mt-1 inline-flex justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg border-0">Bi-Monthly</a>
+                        <a href="#" id="freq-Monthly" onClick="freqMonthly(event)" class="bg-fodsYellow inline-flex mt-1 justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg border-0">Monthly</a>
+                        <a href="#" id="freq-Quarterly" onClick="freqQuarterly(event)" class="inline-flex mt-1 justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg border-0">Quarterly</a>
+                      </div>
+                      <fieldset id="entrance-length" class="hidden">
+                        <div class="mt-4 space-y-4">
+                          <div class="flex items-center">
+                            <input id="refresh-frequency-weekly" value="weekly" name="refresh_frequency" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="refresh-frequency-weekly" class="ml-3 block text-sm font-medium text-gray-700">
+                              Weekly
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="refresh-frequency-bimonthly" value="bimonthly" name="refresh_frequency" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="refresh-frequency-bimonthly" class="ml-3 block text-sm font-medium text-gray-700">
+                              Bi-Monthly
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="refresh-frequency-monthly" value="monthly" checked="checked" name="refresh_frequency" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="refresh-frequency-monthly" class="ml-3 block text-sm font-medium text-gray-700">
+                              Monthly
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="refresh-frequency-quarterly" value="quarterly" name="refresh_frequency" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="refresh-frequency-quarterly" class="ml-3 block text-sm font-medium text-gray-700">
+                              Quarterly
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div> 
+
+
+                <!-- Form Grid Wrapper -->
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                  <!-- Form Grid -->
+                  <div class="grid grid-cols-2 gap-6">
+
+                    <!--- Refresh Cost 1/2 width -->
+                    <div class="col-span-3 sm:col-span-1">
+                      <label for="installation_cost" class="block text-sm font-medium text-gray-700">
+                        Installation Cost
+                      </label>
+                      <div class="mt-1 flex rounded-md shadow-sm">
+                        <input type="text" name="installation_cost" id="installation-cost" placeholder="eg. $3,500" value="3500" class="p-1 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-l-md sm:text-sm border border-gray-300">
+                        <span class="align-center min-w-max w-label max-w-label inline-flex justify-center items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                          per install
+                        </span>
+                      </div>
+                    </div>
+
+                    <!--- Refresh Cost 1/2 width -->
+                    <div class="col-span-3 sm:col-span-1">
+                      <label for="refresh_cost" class="block text-sm font-medium text-gray-700">
+                        Refresh Cost
+                      </label>
+                      <div class="mt-1 flex rounded-md shadow-sm">
+                        <input type="text" name="refresh_cost" id="refresh-cost"  placeholder="eg. $650" value="650" class="p-1 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-l-md sm:text-sm border border-gray-300">
+                        <span class="align-center min-w-max w-label max-w-label inline-flex justify-center items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                          per refresh
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Removal Cost 1/2 width -->
+                    <div class="col-span-3 sm:col-span-1">
+                      <label for="removal_cost" class="block text-sm font-medium text-gray-700">
+                        Removal Cost
+                      </label>
+                      <div class="mt-1 flex rounded-md shadow-sm">
+                        <input type="text" name="removal_cost" id="removal-cost" placeholder="eg. $1,500" value="1500" class="p-1 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-l-md sm:text-sm border border-gray-300">
+                        <span class="align-center min-w-max w-label max-w-label inline-flex justify-center items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                          per removal
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Remediation Cost 1/2 width -->
+                    <div class="col-span-3 sm:col-span-1">
+                      <label for="Remediation_cost" class="block text-sm font-medium text-gray-700">
+                        Remediation Cost
+                      </label>
+                      <div class="mt-1 flex rounded-md shadow-sm">
+                        <input type="text" name="remediation_cost" id="remidiation-cost" placeholder="eg. $750" value="750" class="p-1 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-l-md sm:text-sm border border-gray-300">
+                        <span class="align-center min-w-max w-label max-w-label inline-flex justify-center items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                          per removal
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Project Length 1/2 width -->
+                    <div class="col-span-3 sm:col-span-1">
+                      <label for="installation_frequency" class="block text-sm font-medium text-gray-700">
+                        Avg. Project Length
+                      </label>
+                      <div class="mt-1 flex rounded-md shadow-sm">
+                        <input type="text" name="project_length" id="project-length"  placeholder="eg. 12" value="12" class="p-1 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-l-md sm:text-sm border border-gray-300">
+                        <span class="align-center min-w-max w-label max-w-label inline-flex justify-center items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                          months
+                        </span>
+                      </div>
+                    </div>
+                    
+                  </div> <!-- End Form Grid -->
+                </div><!-- End Form Grid Wrapper -->
+
+                <!-- Email and Submit -->
+                <div class="w-full px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  <label for="email" class="w-full inline-flex text-left justify-left py-2 text-sm font-medium text-gray-700">
+                    Email Address
+                  </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="text" name="email_address" id="emailAddress" placeholder="eg. dschrute@dundermifflin.com" value="" class="w-1 z-10 flex-grow p-1 pl-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block rounded-none rounded-l-md sm:text-sm border border-gray-300">
+                    <input type="text" style="position:fixed;bottom:0px;left:0px;pointer-events:none;opacity:0.00000001" autocomplete="off" name="hp_emailaddress" id="hp_emailAddress" placeholder="dschrute@dundermifflin.com" value="dschrute@dundermifflin.com" class="flex-grow p-1 pl-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block rounded-none rounded-l-md sm:text-sm border border-gray-300">
+                    <a href="#" id="form-submit-btn" style="background-color:#f8d146;" class="min-w-max justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-r-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Get Results
+                    </a>
+                    <input type="submit" class="hidden">
+                  </div>
+                  
+                  
+
+                </div>
+              </div>
+            </form>
+
+            <!-- Results View -->
+            <div id="results" class="hidden">
+              <div class="">
+                <div class="px-4 py-5 bg-gray-100">
+                  <h3 name="form-title" class="text-lg font-medium leading-6 text-gray-900">Your estimated Return On Investment.</h3>
+                  <p class="block text-sm font-medium text-gray-700">See below for a breakdown of your cost savings.</p>
+                  <div class="col-span-2 sm:col-span-1 bg-gray-100 border-gray-200 sm:rounded-lg">
+                    <div class="m-2 flex flex-row">
+                      <div id="roi-label" class="flex flex-col justify-center">
+                        <div class="p-3 text-6xl font-bold bg-fodsYellow shadow rounded-lg">ROI:</div>
+                      </div>
+                      <div class="flex flex-row justify-center align-middle">
+                        <div id="roi" class="p-3 self-center inline text-6xl font-bold">15</div>
+                        <div class="inline self-center pt-10 mb-2 text-lg font-medium leading-6 text-gray-900">mo</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--- Results Grid -->
+                <div class="grid grid-cols-2 auto-rows-auto gap-3 px-4 py-5">
+                  <!-- Block 1 - ROI -->
+                  <div class="hidden col-span-2 sm:col-span-1 bg-gray-100 border-gray-200 sm:rounded-lg">
+                    <div class="m-2 flex flex-row">
+                      <div id="roi-label" class="flex flex-col justify-center">
+                        <div class="p-3 text-6xl font-bold bg-fodsYellow shadow rounded-lg">ROI:</div>
+                      </div>
+                      <div class="flex flex-row justify-center align-middle">
+                        <div id="roi" class="p-3 self-center inline text-6xl font-bold">15</div>
+                        <div class="inline self-center pt-10 mb-2 text-lg font-medium leading-6 text-gray-900">mo</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Block 2 - Savings Table -->
+                  <div class="col-span-2 sm:col-span-3">
+                    <!-- Table -->
+                    <div class="flex flex-col">
+                      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                          <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-200">
+                              <thead class="bg-gray-50">
+                                <tr>
+                                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Your Cost Savings Over...
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex justify-between items-center">
+                                      <div class="flex-shrink-0 h-10 w-10">
+                                        <p class="shadow h-11 w-11 text-sm rounded-full bg-fodsYellow text-center self-center font-semibold pt-3">
+                                          3 Yr
+                                        </p>
+                                      </div>
+                                      <div class="ml-4 text-right">
+                                        <div id="savings-yr3" class="py-1 px-4 text-sm font-medium text-gray-900 shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                          $10,000
+                                        </div>                                                                  
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex justify-between items-center">
+                                      <div class="flex-shrink-0 h-10 w-10">
+                                        <p class="shadow h-11 w-11 text-sm rounded-full bg-fodsYellow text-center self-center font-semibold pt-3">
+                                          5 Yr
+                                        </p>
+                                      </div>
+                                      <div class="ml-4 text-right">
+                                        <div id="savings-yr5" class="py-1 px-4 text-sm font-medium text-gray-900 shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                          $20,000
+                                        </div>                                  
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex justify-between items-center">
+                                      <div class="flex-shrink-0 h-10 w-10">
+                                        <p class="shadow h-11 w-11 text-sm rounded-full bg-fodsYellow text-center self-center font-semibold pt-3">
+                                          10 Yr
+                                        </p>
+                                      </div>
+                                      <div class="ml-4 text-right">
+                                        <div id="savings-yr10" class="py-1 px-4 text-sm font-medium text-gray-900 shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                          $30,000
+                                        </div>                                  
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <!-- More people... -->
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Block 3 Accelerator Table -->
+                  <div class="col-span-2 sm:col-span-2">
+                    <!-- Table -->
+                    <div class="flex flex-col">
+                      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                          <h3 class="px-6 pt-6 text-lg font-medium leading-6 text-gray-900">
+                            Additional Savings When Relocating Entrance
+                          </h3>
+                          <p class="block px-6 py-3 text-sm font-medium text-gray-700">
+                            Your cost savings increase every time you need to move your construction entrance during the job. Use the below estimates to identify savings for your phased projects.
+                          </p>
+                          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-200">
+                              
+                              <thead class="bg-gray-50">
+                                <tr>
+                                  <th scope="col" class="sticky left-0 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Entrance Relocated...
+                                  </th>
+                                  <th scope="col" class="px-6 py-3 text-left sm:text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    3 Yr Savings
+                                  </th>
+                                  <th scope="col" class="px-6 py-3 text-left sm:text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    5 Yr Savings
+                                  </th>
+                                  <th scope="col" class="px-6 py-3 text-left sm:text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    10 Yr Savings
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-left">
+                                      <div class="text-sm font-medium text-gray-900">
+                                        One time per Year
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-1-3yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,013
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-1-5yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,015
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-1-10yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,110
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                </tr><tr>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-left">
+                                      <div class="text-sm font-medium text-gray-900">
+                                        Three times per Year
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-3-3yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-3-5yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-3-10yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                </tr><tr>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-left">
+                                      <div class="text-sm font-medium text-gray-900">
+                                        Five times per Year
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-5-3yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-5-5yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-5-10yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-50 hover:bg-gray-50">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-left">
+                                      <div class="text-sm font-medium text-gray-900">
+                                        Ten times per Year
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-10-3yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-10-5yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex-grow text-right">
+                                      <div id="savings-10-10yr" class="py-1 text-sm font-medium text-gray-900 text-center shadow rounded-md bg-gray-100 hover:bg-fodsYellow">
+                                        $20,000
+                                      </div>                                  
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <!-- More people... -->
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Block 4 - Image - disabled -- >
+                  <div class="col-span-0 sm:col-span-1">
+                    <img class="h-72" src="img/FODS-LOGO 2.png">
+                  </div>
+                <!-- Block 4 disabled -->
+                </div>
+                
+              <!-- Gray Section -->
+              <div class="print:hidden w-full px-4 py-3 pb-5 bg-gray-50 text-right sm:px-6">
+                
+                <div class="mt-1 flex flex-row flex-wrap w-full justify-between">
+                  <div class="text-left flex justify-start mb-4 lg:mb-0">
+                    <a href="#" id="clear-results" class="order-2 sm:order-1 self-start justify-center py-2 px-4 border border-1 shadow-sm text-sm font-medium rounded-md hover:shadow-lg transition-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Go Back
+                    </a>
+                  </div>
+                  <div id="email-confirm-toggle" class="hidden text-right flex-grow flex justify-end mb-4 lg:mb-0 self-end">
+                    <p id="email-confirm" class="large-show w-full self-end sm:w-auto order-1 sm: order-2 w-full sm:w-auto self-start justify-center py-2 px-4 border border-transparent text-xs font-medium uppercase text-gray-500 tracking-wider">
+                      Sending email...
+                    </p>
+                    <p class="large-hide self-end w-full sm:w-auto order-1 sm: order-2 w-full sm:w-auto self-start justify-center py-2 px-4 border border-transparent text-xs font-medium uppercase text-gray-500 tracking-wider">
+                      Sending email...
+                    </p>
+                  </div>
+                  <div class="text-right flex flex-grow w-full justify-end lg:w-auto lg:flex-grow-0">
+                    <a href="https://getfods.com/contact" style="background-color:#f8d146;" class="hover:shadow-lg flex-grow lg:flex-grow-0 self-end justify-center text-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Get A Quote
+                    </a>
+                    <a href="#" id="print-btn" onClick="window.print()" style="background-color:#f8d146;" class="hover:shadow-lg flex-grow text-center lg:flex-grow-0 ml-1 self-end justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Print
+                    </a>
+                    <a href="#" id="sendBtn" style="background-color:#f8d146;" class="hover:shadow-lg flex-grow lg:flex-grow-0 text-center ml-1 self-end justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Email
+                    </a>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
