@@ -1,4 +1,10 @@
-/*! tailwindcss v2.1.2 | MIT License | https://tailwindcss.com */
+/* 
+* Normalize
+*/
+
+/* 
+! tailwindcss v2.1.4 | MIT License | https://tailwindcss.com
+*/
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -245,11 +251,6 @@ Correct the cursor style of increment and decrement buttons in Safari.
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
-
-[type='search'] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
 
 /**
 Remove the inner padding in Chrome and Safari on macOS.
@@ -560,11 +561,6 @@ video {
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
 
-.bg-fodsYellow {
-  --tw-bg-opacity: 1;
-  background-color: rgba(248, 209, 70, var(--tw-bg-opacity));
-}
-
 .hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
@@ -578,11 +574,6 @@ video {
 .hover\:bg-indigo-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
-}
-
-.hover\:bg-fodsYellow:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgba(248, 209, 70, var(--tw-bg-opacity));
 }
 
 .border-transparent {
@@ -861,10 +852,6 @@ video {
   max-width: 1536px;
 }
 
-.max-w-label {
-  max-width: 6.4rem;
-}
-
 .min-w-full {
   min-width: 100%;
 }
@@ -1084,16 +1071,12 @@ video {
   visibility: visible;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .whitespace-nowrap {
   white-space: nowrap;
 }
 
 .w-1 {
-  width: 3.5rem;
+  width: 0.25rem;
 }
 
 .w-4 {
@@ -1114,10 +1097,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-label {
-  width: 6.6rem;
 }
 
 .z-10 {
@@ -1230,37 +1209,6 @@ video {
     -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
             animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
-}
-
-.bg-error {
-  /*background-color: #ffdbdb;*/
-  box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) #ff6161;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-}
-
-@media screen and (max-width:1023px) {
-  .large-show {
-    display:none!important;
-  }
-}
-
-@media screen and (min-width:1024px) {
-  .large-hide {
-    display:none!important;
-  }
-}
-
-* {
-  transition-property: box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 @media (min-width: 640px) {
@@ -1419,10 +1367,4 @@ video {
 }
 
 @media (min-width: 1536px) {
-}
-
-@media print {
-  .print\:hidden {
-    display: none;
-  }
 }
