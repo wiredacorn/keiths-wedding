@@ -11,10 +11,14 @@ module.exports = {
       fontFamily: {
         'serif': ['Tangerine', 'cursive'],
         'sans': ['Muli', 'notcursive'],
+        'fancy': ['Cormorant', 'serif'],
       },
       colors: {
         'tan': {
           DEFAULT: '#c78665'
+        },
+        'lightblue': {
+          DEFAULT: '#e5eef1'
         }
       }
     }

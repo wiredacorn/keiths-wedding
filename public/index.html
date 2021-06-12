@@ -8,10 +8,13 @@
     <script src="js/app.js"></script>
     <link href="build/tailwind.css" rel="stylesheet" type="text/css">
     <link href="css/print.css" rel="stylesheet" type="text/css">
+    <link href="css/transitions.css" rel="stylesheet" type ="text/css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
     <!-- Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
@@ -23,10 +26,14 @@
       button:focus {
       outline: none;
       }
+      .mapbox-logo,
+      .leaflet-control-attribution {
+    display:none;
+}
     </style>
   </head>
   <body onUnload="clearForm();">
-    <main>
+    <main class="overflow-hidden">
       <div>
         <header class="bg-transparent top-0 w-full z-20">
         <!-- Navigation -->
@@ -39,20 +46,20 @@
 
                   <div class="sm:block sm:ml-6 content-center">
                     <h1 class="font-serif text-2xl h-16 sm:h-10 flex align-center justify-center content-center items-center py-5 font-medium leading-6">
-                      Keith and Kylee's Wedding
+                      Keith and Kylee
                     </h1>
                   </div>
                 </div>
                 <!-- Right navigation -->
                 <!-- Links -->
                 <div class="flex items-center justify-center sm:items-stretch sm:justify-end">
-                  <a href="https://getfods.com" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                  <a href="#rsvp" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     RSVP
                   </a>
-                  <a href="https://getfods.com" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                  <a href="#details" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     Wedding Details
                   </a>
-                  <a href="https://getfods.com" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                  <a href="#gallery" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     Gallery
                   </a>
                 </div>
@@ -63,120 +70,418 @@
         <!---  End Navigation  -->
 
         <!-- Hero -->
-        <div style="height:70vh;" class="mt-2/5 relative flex z-1 w-max-content mx-auto h-screen">
+        <div style="height:80vh;" class="mt-2/5 relative flex z-1 w-max-content mx-auto h-screen">
           
-          <div class="z-10 foreground bg-transparent mx-auto mt-48">
+          <div class="px-48 z-10 foreground bg-transparent mx-auto mt-48">
             <h1 class="tracking-widest font-light uppercase text-4xl font-sans text-center text-white mx-auto size-8">
               We're getting married!
             </h1>
           </div>
-          <div class="z-0 background absolute top-0 bottom-0 left-0 right-0 bg-cover" style="background-image:url('img/table.jpg'); filter:grayscale(1);"></div>
+          <div class="px-48 z-0 background absolute top-0 bottom-0 left-0 right-0 bg-cover" style="background-image:url('img/table.jpg'); filter:grayscale(1);"></div>
         </div>
         <!-- End Hero -->
 
-        <!-- Form Section -->
-        <div class="flex h-screen bg-gray-300">
-          <div class="form-wrapper bg-white relative z-20 w-6/12 bg-white ml-28 mr-4 -mt-40 pt-8 px-8">
-            <!-- Half Width -->
-            <div class="6/12 bg-gray p-8">
-              <p class="tracking-widest font-light uppercase text-2xl font-sans">Will You Attend?</p>
-                <!-- Form -->
-                <form id="rsvp-form" action="#" method="POST" class="visible">
-                  <!-- Form Grid Wrapper -->
-                  <div class="pt-8 space-y-6 sm:py-6">
-  
-                    <!-- Input Field -->
-                    <div class="col-span-3 sm:col-span-1">
-                      <div class="mt-1 flex rounded-md shadow-sm">
-                        <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Name" class="border-b border-gray-300 focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
-                      </div>
-                    </div>
-                    <!-- End Input Field -->
-  
-                    
-  
-                    <!-- Input Field -->
-                    <div class="col-span-3 sm:col-span-1">
-                      <div class="mt-1 flex rounded-md shadow-sm">
-                        <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Email" class="border-b border-gray-300 focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
-                      </div>
-                    </div>
-                    <!-- End Input Field -->
-  
-                    <!-- Radio Button -->
-                    <div class="col-span-3 sm:col-span-1">
-                      <div class="">
-                        <legend class="block text-sm font-medium text-gray-700">Attending?</legend>
-                      </div>
-                      <div class="col-auto gap-0 flex-row md:col-span-1">
-                        <a href="#" id="attendingYes" onClick="attendingYes(event)" class="transition-shadow inline-flex mt-1 justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg">Yes! Can't wait!</a>
-                        <a href="#" id="attendingNo" onClick="attendingNo(event)" class="transition-shadow hover:transition-shadow duration-100 bg-fodsYellow mt-1 inline-flex justify-center py-2 px-4 border-transparent shadow text-sm font-medium rounded-md focus:outline-none hover:shadow-lg">No, can't make it :(</a>
-                      </div>
-                      <fieldset id="entrance-length" class="hidden">
-                        <div class="mt-4">
-                          <div class="flex items-center">
-                            <input id="attendingYes" name="attending" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                            <label for="attendingYes" class="ml-3 block text-sm font-medium text-gray-700">
-                              Yes
-                            </label>
-                          </div>
-                          <div class="flex items-center">
-                            <input id="attendingNo" name="attending" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                            <label for="attendingNo" class="ml-3 block text-sm font-medium text-gray-700">
-                              No
-                            </label>
-                          </div>
+        <!-- Form Section 1/2 Width -->
+        <div class="relative overflow">
+          <div class="flex bg-lightblue px-48">
+            <div id="rsvp" class="h-12"></div>
+            <div class="form-wrapper bg-white shadow-lg relative z-20 w-1/2 ml-auto mr-4 px-8 -mt-20 -mb-20">
+              <!-- Half Width -->
+              <div class="p-8 pt-16">
+                  <p class="tracking-widest font-light uppercase text-2xl font-sans text-tan">
+                    Will You Attend?
+                  </p>
+                  <p class="uppercase italic font-lightest font-sans text-sm text-gray-300 opacity-90">
+                    RSVP Deadline is Sept. 30th.
+                  </p>
+                  <!-- Form -->
+                  <form id="rsvp-form" action="#" method="POST" class="visible">
+                    <!-- Form Grid Wrapper -->
+                    <div class="pt-8 space-y-6 sm:py-6">
+    
+                      <!-- Input Field -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Name" class="text-tan border-b border-gray-300 hover:border-tan focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                         </div>
-                      </fieldset>
-                    </div>
-                    <!-- End Radio Button -->
-  
-                    <!-- Input Field -->
-                    <div class="col-span-3 sm:col-span-1">
-                      <label for="installation_cost" class="block text-sm font-medium text-gray-700">
-                        Allergies?
-                      </label>
-                      <div class="mt-1 flex rounded-md shadow-sm">
-                        <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Allergies?" class="border-b border-gray-300 focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                       </div>
+                      <!-- End Input Field -->
+    
+                      
+    
+                      <!-- Input Field -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Email" class="text-tan border-b border-gray-300 hover:border-tan focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                        </div>
+                      </div>
+                      <!-- End Input Field -->
+    
+                      <!-- Radio Button -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="">
+                          <legend class="block pl-2 mb-2 text-sm font-medium text-gray-400">
+                            Attending?
+                          </legend>
+                        </div>
+                        <div class="bg-tan max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                            <a href="#" id="attendingYes" onClick="attendingYes(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
+                              Yes
+                            </a>
+                          </div>
+                          <div class="bg-tan max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                            <a href="#" id="attendingNo" onClick="attendingNo(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
+                              No
+                            </a>
+                          </div>
+                        <fieldset id="entrance-length" class="hidden">
+                          <div class="mt-4">
+                            <div class="flex items-center">
+                              <input id="attendingYes" name="attending" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                              <label for="attendingYes" class="ml-3 block text-sm font-medium text-gray-700">
+                                Yes
+                              </label>
+                            </div>
+                            <div class="flex items-center">
+                              <input id="attendingNo" name="attending" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                              <label for="attendingNo" class="ml-3 block text-sm font-medium text-gray-700">
+                                No
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <!-- End Radio Button -->
+    
+                      <!-- Input Field -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Allergies?" class="text-tan border-b border-gray-300 hover:border-tan focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                        </div>
+                      </div>
+                      <!-- End Input Field -->
+    
+    
                     </div>
-                    <!-- End Input Field -->
-  
-  
-                  </div>
-                  <!-- End Form Grid Wrapper -->
-  
-                  <!-- Submit Button -->
-                    <input type="submit" class="hidden">
-                    <a href="#" id="form-submit-btn" style="background-color:#f8d146;" class="min-w-max justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                      Submit
-                    </a>
-                  <!-- End Submit Button -->
-                </form> <!-- End Form -->
-                
+                    <!-- End Form Grid Wrapper -->
+    
+                    <!-- Submit Button -->
+                      <input type="submit" class="hidden">
+                      <div class="bg-tan max-w-max min-h-max min-w-max" style="padding:5px">
+                        <a href="#" id="form-submit-btn" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-8 py-2 block">
+                          RSVP
+                        </a>
+                      </div>
+                      
+                    <!-- End Submit Button -->
+                  </form> <!-- End Form -->
+                  
+              </div>
+            
+            <!-- Info Section 1/2 Width -->
             </div>
-          
-          <!-- Info -->
-          </div>
-          <div class="bg-gray relative z-20 w-6/12 bg-white relative w-6/12 bg-white mr-28 ml-4 mt-4 pt-8 px-8">
-            <div>
-              <p>11/04/2021</p>
-              <p>Garden Tuscana Reception Hall<br>1940 E Main St<br>Mesa, AZ 85203</p>
+
+            <div id="details" class="h-12"></div>
+
+
+            <div class="relative z-20 w-1/2 ml-4 relative pt-48 pb-16 px-8 flex flex-col justify-center align-middle">
+              <div class="text-4xl w-max font-serif text-black opacity-60">
+                Wedding Details
+              </div>
+              <div class="w-max mt-4 p-4 pt-2 font-sans uppercase text-sm bg-lightblue opacity-50">
+                <p class="text-black">
+                  11/04/2021
+                </p>
+                <br>
+                <p>
+                  Garden Tuscana Reception Hall
+                  <br>1940 E Main St
+                  <br>Mesa, AZ 85203
+                </p>
+                <button ></button>
+              </div>
             </div>
+  
+  
+           <!-- Decoration Pictures-->
+            <div class="absolute top-0 left-0 right-0 bottom-0">
+              <div class="z-0 absolute" style="height:400px; bottom:-100px; right:-100px">
+                <img class="h-full w-full object-contain" src="./img/bigleaf.png">
+              </div>
+              <div class="z-2 absolute h-72 w-auto left-2 right-0 -top-28">
+                <img class="h-full w-full object-contain" src="./img/flower.png">
+              </div>
+              <div class="z-2 absolute" style="height:300px; bottom: -50px; left:-70px">
+                <img class="h-full w-full object-contain" src="./img/smallphoto1.png">
+              </div>
+              <div class="z-2 absolute" style="height:400px; right:-100px">
+                <img class="h-full w-full object-contain" src="./img/smallphoto2.png">
+              </div>
+            </div>  
           </div>
+        </div> <!-- Relative Section Wrapper -->
+
+        <!-- Wedding Schedule -->
+        <div class="bg-white px-48 py-72">
+          <div class="flex flex-row justify-around">
+            <img class="" src="./img/leaf.png">
+          </div>
+          <div class="font-serif text-6xl text-center opacity-70 pb-20">
+            When
+            <span class="dot"></span>
+            &
+            <span class="dot"></span>
+            Where
+            <style>.dot {margin-bottom:6px;margin-left:10px;margin-right:10px;height:6px;width:6px;border-radius:250px;background-color:black;display:inline-block;}</style>
+          </div>
+          <div class="flex flex-row w-full justify-evenly text-center">
+            <div class="1/3">
+              <div class="">
+                <img class="mx-auto" src="./img/reception.png">
+                <div class="text-black uppercase pt-8">
+                  Receiption
+                </div>
+                <div class="text-black text-opacity-50 pt-4">
+                  2:00PM - 3:30PM
+
+                </div>
+              </div>
+            </div>
+
+            <div class="1/3">
+              <div>
+                <img class="mx-auto" src="./img/ceremony.png">
+                <div class="text-black uppercase pt-8">
+                  Reception
+                </div>
+                <div class="text-black text-opacity-50 pt-4">
+                  3:30PM - 7:00PM
+
+                </div>
+              </div>
+            </div>
+
+            <div class="1/3">
+              <div>
+                <img class="mx-auto" src="./img/party.png">
+                <div class="text-black uppercase pt-8">
+                  After Party
+                </div>
+                <div class="text-black text-opacity-50 pt-4">
+                  Happily Ever After
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
         </div>
         
+        <!-- Bridesmaids and Groomsmen Section -->
+        
+        <div class="bg-lightblue px-48 py-32">
+          <div class="flex flex-row border-2 border-lightblue border-opacity-25 p-16">
 
-        <!-- Info -->
-        <div class="flex">
-          <div class="w-6/12 bg-black h-screen">
+            <div class="flex flex-col max-w-1/2 w-max-content mx-auto">
+              <div class="font-serif text-6xl text-black pb-8">
+                Bridesmaids
+              </div>
 
-          </div>
-          <div class="w-6/12 -bg-gray h-screen">
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Jo Anna
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good lass all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Jo Anna
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good lass all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Jo Anna
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good lass all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Jo Anna
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good lass all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Jo Anna
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good lass all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+            </div>
+
+            <div class="flex flex-col max-w-1/2 w-max-content mx-auto">
+              <div class="font-serif text-6xl text-black pb-8">
+                Groomsmen
+              </div>
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Brandon Lavender
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good chap all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Brandon Lavender
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good chap all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Brandon Lavender
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good chap all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Brandon Lavender
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good chap all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Brandon Lavender
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    A good chap all around.
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+
+
+            </div>
+
           </div>
         </div>
-                
+        <!-- End Bridesmaid and Groomsman Section -->
+
+        <!-- Map Section -->
+          <div id='map_geo' class='map w-full' style="height:500px;"> </div>
+          <script>
+          L.mapbox.accessToken = "pk.eyJ1Ijoid2lyZWRhY29ybiIsImEiOiJja3B0aXp1cnUwMTMyMm5tem9kZzB4Y3RhIn0.iNBSsbngJTTMFETfjO-Diw"
+          var geojson = [
+          {
+            "type": "FeatureCollection",
+            "features": [{ "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.78994538030375, 33.416857115164674]
+                },
+                "properties": {
+                    "title": "Garden Tuscana Reception Hall",
+                    "description": "1940 E Main St <br> Mesa, AZ 85203",
+                    "marker-size": "medium",
+                    "marker-symbol": "heart",
+                    "marker-color": "#486d84",
+                    "stroke": "#555555",
+                    "stroke-opacity": 0.0,
+                    "stroke-width": 0,
+                    "fill": "#486d84",
+                    "fill-opacity": 1
+                }
+              }]
+          }
+          ];
+          
+          var mapGeo = L.mapbox.map('map_geo')
+            .setView([33.416857115164674, -111.78994538030375], 13)
+            .addLayer(L.mapbox.styleLayer('mapbox://styles/wiredacorn/ckptj5dxh1vdt19ntqfs0pl6m'));
+          
+          var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapGeo);
+          mapGeo.scrollWheelZoom.disable();
+          </script>
+            
       </div>
     </main>
   </body>
 </html>
+
