@@ -1,5 +1,5 @@
 [build]
-  publish = "_site"
+  publish = "public"
   command = "npm run build-prod"
 
 [build-dev]
