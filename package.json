@@ -12,7 +12,7 @@
     "build-prod": "cross-env NODE_ENV=production postcss src/tailwind.css -o public/build/tailwind.css"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "google-spreadsheet": "^3.1.15"
   },
   "devDependencies": {

@@ -7,7 +7,17 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'serif': ['Tangerine', 'cursive'],
+        'sans': ['Muli', 'notcursive'],
+      },
+      colors: {
+        'tan': {
+          DEFAULT: '#c78665'
+        }
+      }
+    }
   },
   variants: {
     extend: {},
