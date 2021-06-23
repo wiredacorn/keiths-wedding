@@ -19,6 +19,17 @@ module.exports = {
         },
         'lightblue': {
           DEFAULT: '#e5eef1'
+        },
+        "red": {
+          light: '#dcbfc1',
+          DEFAULT: '#b78497',
+          dark: '#6b3c43',
+          
+        },
+        "blue": {
+          light: '#CCD3FA',
+          DEFAULT: '#323b5a'
+
         }
       }
     }

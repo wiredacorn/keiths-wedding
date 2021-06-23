@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>FODS ROI Calculator</title>
+    <title>The Foster Wedding</title>
     <script src="js/app.js"></script>
     <link href="build/tailwind.css" rel="stylesheet" type="text/css">
     <link href="css/print.css" rel="stylesheet" type="text/css">
@@ -37,7 +37,7 @@
       <div>
         <header class="bg-transparent top-0 w-full z-20">
         <!-- Navigation -->
-          <nav class="print:hidden" style="background-color:transparent">
+          <nav class="print:hidden">
             <div class="max-w-screen-2xl mx-auto px-2 sm:px-6 lg:px-8">
               <div class="relative flex sm:flex-wrap items-center justify-between h-16">
                 <!-- Left navigation -->
@@ -88,11 +88,8 @@
             <div class="form-wrapper bg-white shadow-lg relative z-20 w-1/2 ml-auto mr-4 px-8 -mt-20 -mb-20">
               <!-- Half Width -->
               <div class="p-8 pt-16">
-                  <p class="tracking-widest font-light uppercase text-2xl font-sans text-tan">
+                  <p class="tracking-widest font-light uppercase text-2xl font-sans text-blue">
                     Will You Attend?
-                  </p>
-                  <p class="uppercase italic font-lightest font-sans text-sm text-gray-300 opacity-90">
-                    RSVP Deadline is Sept. 30th.
                   </p>
                   <!-- Form -->
                   <form id="rsvp-form" action="#" method="POST" class="visible">
@@ -102,7 +99,7 @@
                       <!-- Input Field -->
                       <div class="col-span-3 sm:col-span-1">
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Name" class="text-tan border-b border-gray-300 hover:border-tan focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Name" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                         </div>
                       </div>
                       <!-- End Input Field -->
@@ -112,7 +109,7 @@
                       <!-- Input Field -->
                       <div class="col-span-3 sm:col-span-1">
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Email" class="text-tan border-b border-gray-300 hover:border-tan focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Email" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                         </div>
                       </div>
                       <!-- End Input Field -->
@@ -124,12 +121,12 @@
                             Attending?
                           </legend>
                         </div>
-                        <div class="bg-tan max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                        <div class="bg-blue max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
                             <a href="#" id="attendingYes" onClick="attendingYes(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
                               Yes
                             </a>
                           </div>
-                          <div class="bg-tan max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                          <div class="bg-blue max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
                             <a href="#" id="attendingNo" onClick="attendingNo(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
                               No
                             </a>
@@ -156,7 +153,7 @@
                       <!-- Input Field -->
                       <div class="col-span-3 sm:col-span-1">
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Allergies?" class="text-tan border-b border-gray-300 hover:border-tan focus:border-tan p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Allergies?" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                         </div>
                       </div>
                       <!-- End Input Field -->
@@ -167,7 +164,7 @@
     
                     <!-- Submit Button -->
                       <input type="submit" class="hidden">
-                      <div class="bg-tan max-w-max min-h-max min-w-max" style="padding:5px">
+                      <div class="bg-blue max-w-max min-h-max min-w-max" style="padding:5px">
                         <a href="#" id="form-submit-btn" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-8 py-2 block">
                           RSVP
                         </a>
@@ -185,18 +182,16 @@
 
 
             <div class="relative z-20 w-1/2 ml-4 relative pt-48 pb-16 px-8 flex flex-col justify-center align-middle">
-              <div class="text-4xl w-max font-serif text-black opacity-60">
-                Wedding Details
+              <div class="text-4xl w-max font-serif text-blue">
+                Wedding Date
               </div>
-              <div class="w-max mt-4 p-4 pt-2 font-sans uppercase text-sm bg-lightblue opacity-50">
-                <p class="text-black">
+              <div class="w-max font-sans uppercase text-sm">
+                <p class="text-4xl w-max font-serif text-blue">
                   11/04/2021
                 </p>
                 <br>
-                <p>
-                  Garden Tuscana Reception Hall
-                  <br>1940 E Main St
-                  <br>Mesa, AZ 85203
+                <p class="uppercase italic font-lightest font-sans text-sm text-red">
+                  RSVP by Sept. 30th.
                 </p>
                 <button ></button>
               </div>
@@ -206,10 +201,10 @@
            <!-- Decoration Pictures-->
             <div class="absolute top-0 left-0 right-0 bottom-0">
               <div class="z-0 absolute" style="height:400px; bottom:-100px; right:-100px">
-                <img class="h-full w-full object-contain" src="./img/bigleaf.png">
+                <img class="h-full w-full object-contain" src="./img/bigleaf-red.png">
               </div>
               <div class="z-2 absolute h-72 w-auto left-2 right-0 -top-28">
-                <img class="h-full w-full object-contain" src="./img/flower.png">
+                <img class="h-full w-full object-contain" src="./img/flower-red-l.png">
               </div>
               <div class="z-2 absolute" style="height:300px; bottom: -50px; left:-70px">
                 <img class="h-full w-full object-contain" src="./img/smallphoto1.png">
@@ -226,33 +221,39 @@
           <div class="flex flex-row justify-around">
             <img class="" src="./img/leaf.png">
           </div>
-          <div class="font-serif text-6xl text-center opacity-70 pb-20">
+          <div class="font-serif text-6xl text-center text-blue pb-20">
             When
-            <span class="dot"></span>
+            <span class="dot bg-blue"></span>
             &
-            <span class="dot"></span>
+            <span class="dot bg-blue"></span>
             Where
-            <style>.dot {margin-bottom:6px;margin-left:10px;margin-right:10px;height:6px;width:6px;border-radius:250px;background-color:black;display:inline-block;}</style>
+            <style>.dot {margin-bottom:6px;margin-left:10px;margin-right:10px;height:6px;width:6px;border-radius:250px;display:inline-block;}</style>
           </div>
+          
           <div class="flex flex-row w-full justify-evenly text-center">
             <div class="1/3">
               <div class="">
-                <img class="mx-auto" src="./img/reception.png">
+                <img class="mx-auto" src="./img/reception-1-red.png">
                 <div class="text-black uppercase pt-8">
                   Receiption
                 </div>
                 <div class="text-black text-opacity-50 pt-4">
                   2:00PM - 3:30PM
-
+                </div>
+                <div class="text-black text-opacity-50 pt-4">
+                  <p>Garden Tuscana Reception Hall
+                  <br>1940 E Main St
+                  <br>Mesa, AZ 85203
+                  </p>
                 </div>
               </div>
             </div>
 
             <div class="1/3">
               <div>
-                <img class="mx-auto" src="./img/ceremony.png">
+                <img class="mx-auto" src="./img/ceremony-1-red.png">
                 <div class="text-black uppercase pt-8">
-                  Reception
+                  Ceremony
                 </div>
                 <div class="text-black text-opacity-50 pt-4">
                   3:30PM - 7:00PM
@@ -263,7 +264,7 @@
 
             <div class="1/3">
               <div>
-                <img class="mx-auto" src="./img/party.png">
+                <img class="mx-auto" src="./img/party-1-red.png">
                 <div class="text-black uppercase pt-8">
                   After Party
                 </div>
@@ -294,10 +295,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Jo Anna
+                    Melissa Tuner
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good lass all around.
+                    Maid of Honor
                   </div>
                 </div>
               </div>
@@ -308,10 +309,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Jo Anna
+                    Jocelyn Collins
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good lass all around.
+                    Bridesmaid
                   </div>
                 </div>
               </div>
@@ -322,10 +323,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Jo Anna
+                    Cortney Nitz
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good lass all around.
+                    Bridesmaid
                   </div>
                 </div>
               </div>
@@ -336,10 +337,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Jo Anna
+                    Ashlea Lavender
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good lass all around.
+                    Bridesmaid
                   </div>
                 </div>
               </div>
@@ -350,10 +351,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Jo Anna
+                    Melissa Foster
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good lass all around.
+                    Bridesmaid
                   </div>
                 </div>
               </div>
@@ -371,10 +372,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Brandon Lavender
+                    Josh Shaw
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good chap all around.
+                    Best Man
                   </div>
                 </div>
               </div>
@@ -388,7 +389,7 @@
                     Brandon Lavender
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good chap all around.
+                    Groomsman
                   </div>
                 </div>
               </div>
@@ -399,10 +400,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Brandon Lavender
+                    Nick Larson
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good chap all around.
+                    Groomsman
                   </div>
                 </div>
               </div>
@@ -413,10 +414,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Brandon Lavender
+                    Kevin Montgomery
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good chap all around.
+                    Groomsman
                   </div>
                 </div>
               </div>
@@ -427,10 +428,10 @@
                 <img class="rounded-full shadow-lg" src="./img/profile.png">
                 <div class="flex flex-col justify-center pl-4">
                   <div class="font-bold font-sans pb-2">
-                    Brandon Lavender
+                    James Nitz
                   </div>
                   <div class="italic font-light opacity-50 font-sans pb-2">
-                    A good chap all around.
+                    Groomsman
                   </div>
                 </div>
               </div>
@@ -445,7 +446,12 @@
         <!-- End Bridesmaid and Groomsman Section -->
 
         <!-- Map Section -->
+        <div class="bg-lightblue px-48 py-32">
+          <div class="font-serif text-6xl text-blue">
+            <p>Wedding Location</p>
+          </div>
           <div id='map_geo' class='map w-full' style="height:500px;"> </div>
+        </div>
           <script>
           L.mapbox.accessToken = "pk.eyJ1Ijoid2lyZWRhY29ybiIsImEiOiJja3B0aXp1cnUwMTMyMm5tem9kZzB4Y3RhIn0.iNBSsbngJTTMFETfjO-Diw"
           var geojson = [
