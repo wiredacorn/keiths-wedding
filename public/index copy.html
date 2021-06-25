@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The Foster Wedding</title>
+    <script src="js/app.js"></script>
+    <link href="build/tailwind.css" rel="stylesheet" type="text/css">
+    <link href="css/print.css" rel="stylesheet" type="text/css">
+    <link href="css/transitions.css" rel="stylesheet" type ="text/css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+    <!-- Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli%3A300%2C400%2C400i%2C600%2C700%7CCormorant%3A300%2C400%2C400i%2C600%2C700%7CLearningCurve%3A300%2C400%2C400i%2C600%2C700&amp;subset=latin-ext" rel="stylesheet" type="text/css" media="all">
+    <style>
+      input:focus,
+      select:focus,
+      textarea:focus,
+      button:focus {
+      outline: none;
+      }
+      .mapbox-logo,
+      .leaflet-control-attribution {
+    display:none;
+}
+    </style>
+  </head>
+  <body onUnload="clearForm();">
+    <main class="overflow-hidden">
+      <div>
+        <header class="bg-transparent top-0 w-full z-20">
+        <!-- Navigation -->
+          <nav class="print:hidden">
+            <div class="max-w-screen-2xl mx-auto px-2 sm:px-6 lg:px-8">
+              <div class="relative flex sm:flex-wrap items-center justify-between h-16">
+                <!-- Left navigation -->
+                <!-- Logo -->
+                <div class="flex-1 flex items-left sm:items-center justify-left sm:items-stretch sm:justify-start">
+
+                  <div class="sm:block sm:ml-6 content-center">
+                    <h1 class="font-serif text-2xl h-16 sm:h-10 flex align-center justify-center content-center items-center py-5 font-medium leading-6">
+                      Keith and Kylee
+                    </h1>
+                  </div>
+                </div>
+                <!-- Right navigation -->
+                <!-- Links -->
+                <div class="flex items-center justify-center sm:items-stretch sm:justify-end">
+                  <a href="#rsvp" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                    RSVP
+                  </a>
+                  <a href="#details" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                    Wedding Details
+                  </a>
+                  <a href="#gallery" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                    Gallery
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <!---  End Navigation  -->
+
+        <!-- Hero -->
+        <div style="height:80vh;" class="mt-2/5 relative flex z-1 w-max-content mx-auto h-screen">
+          
+          <div class="px-48 z-10 foreground bg-transparent mx-auto mt-48">
+            <h1 class="tracking-widest font-light uppercase text-4xl font-sans text-center text-white mx-auto size-8">
+              We're getting married!
+            </h1>
+          </div>
+          <div class="px-48 z-0 background absolute top-0 bottom-0 left-0 right-0 bg-cover" style="background-image:url('img/table.jpg'); filter:grayscale(1);"></div>
+        </div>
+        <!-- End Hero -->
+
+        <!-- Form Section 1/2 Width -->
+        <div class="relative overflow">
+          <div class="flex bg-lightblue px-48">
+            <div id="rsvp" class="h-12"></div>
+            <div class="form-wrapper bg-white shadow-lg relative z-20 w-1/2 ml-auto mr-4 px-8 -mt-20 -mb-20">
+              <!-- Half Width -->
+              <div class="p-8 pt-16">
+                  <p class="tracking-widest font-light uppercase text-2xl font-sans text-blue">
+                    Will You Attend?
+                  </p>
+                  <!-- Form -->
+                  <form id="rsvp-form" action="#" method="POST" class="visible">
+                    <!-- Form Grid Wrapper -->
+                    <div class="pt-8 space-y-6 sm:py-6">
+    
+                      <!-- Input Field -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Name" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                        </div>
+                      </div>
+                      <!-- End Input Field -->
+    
+                      
+    
+                      <!-- Input Field -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Email" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                        </div>
+                      </div>
+                      <!-- End Input Field -->
+    
+                      <!-- Radio Button -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="">
+                          <legend class="block pl-2 mb-2 text-sm font-medium text-gray-400">
+                            Attending?
+                          </legend>
+                        </div>
+                        <div class="bg-blue max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                            <a href="#" id="attendingYes" onClick="attendingYes(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
+                              Yes
+                            </a>
+                          </div>
+                          <div class="bg-blue max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                            <a href="#" id="attendingNo" onClick="attendingNo(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
+                              No
+                            </a>
+                          </div>
+                        <fieldset id="entrance-length" class="hidden">
+                          <div class="mt-4">
+                            <div class="flex items-center">
+                              <input id="attendingYes" name="attending" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                              <label for="attendingYes" class="ml-3 block text-sm font-medium text-gray-700">
+                                Yes
+                              </label>
+                            </div>
+                            <div class="flex items-center">
+                              <input id="attendingNo" name="attending" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                              <label for="attendingNo" class="ml-3 block text-sm font-medium text-gray-700">
+                                No
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <!-- End Radio Button -->
+    
+                      <!-- Input Field -->
+                      <div class="col-span-3 sm:col-span-1">
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                          <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Allergies?" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                        </div>
+                      </div>
+                      <!-- End Input Field -->
+    
+    
+                    </div>
+                    <!-- End Form Grid Wrapper -->
+    
+                    <!-- Submit Button -->
+                      <input type="submit" class="hidden">
+                      <div class="bg-blue max-w-max min-h-max min-w-max" style="padding:5px">
+                        <a href="#" id="form-submit-btn" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-8 py-2 block">
+                          RSVP
+                        </a>
+                      </div>
+                      
+                    <!-- End Submit Button -->
+                  </form> <!-- End Form -->
+                  
+              </div>
+            
+            <!-- Info Section 1/2 Width -->
+            </div>
+
+            <div id="details" class="h-12"></div>
+
+
+            <div class="relative z-20 w-1/2 ml-4 relative pt-48 pb-16 px-8 flex flex-col justify-center align-middle">
+              <div class="text-4xl w-max font-serif text-blue">
+                Wedding Date
+              </div>
+              <div class="w-max font-sans uppercase text-sm">
+                <p class="text-4xl w-max font-serif text-blue">
+                  11/04/2021
+                </p>
+                <br>
+                <p class="uppercase italic font-lightest font-sans text-sm text-red">
+                  RSVP by Sept. 30th.
+                </p>
+                <button ></button>
+              </div>
+            </div>
+  
+  
+           <!-- Decoration Pictures-->
+            <div class="absolute top-0 left-0 right-0 bottom-0">
+              <div class="z-0 absolute" style="height:400px; bottom:-100px; right:-100px">
+                <img class="h-full w-full object-contain" src="./img/bigleaf-red.png">
+              </div>
+              <div class="z-2 absolute h-72 w-auto left-2 right-0 -top-28">
+                <img class="h-full w-full object-contain" src="./img/flower-red-l.png">
+              </div>
+              <div class="z-2 absolute" style="height:300px; bottom: -50px; left:-70px">
+                <img class="h-full w-full object-contain" src="./img/smallphoto1.png">
+              </div>
+              <div class="z-2 absolute" style="height:400px; right:-100px">
+                <img class="h-full w-full object-contain" src="./img/smallphoto2.png">
+              </div>
+            </div>  
+          </div>
+        </div> <!-- Relative Section Wrapper -->
+
+        <!-- Wedding Schedule -->
+        <div class="bg-red-light px-48 py-72">
+          <div class="flex flex-row justify-around">
+            <img class="" src="./img/leaf.png">
+          </div>
+          <div class="font-serif text-6xl text-center text-blue pb-20">
+            When
+            <span class="dot bg-blue"></span>
+            &
+            <span class="dot bg-blue"></span>
+            Where
+            <style>.dot {margin-bottom:6px;margin-left:10px;margin-right:10px;height:6px;width:6px;border-radius:250px;display:inline-block;}</style>
+          </div>
+          
+          <div class="flex flex-row w-full justify-evenly text-center">
+            <div class="1/3">
+              <div class="">
+                <img class="mx-auto" src="./img/reception-1-red.png">
+                <div class="text-black uppercase pt-2">
+                  Receiption
+                </div>
+                <div class="text-black text-opacity-70 pt-4">
+                  2:00PM - 3:30PM
+                </div>
+              </div>
+            </div>
+
+            <div class="1/3">
+              <div>
+                <img class="mx-auto" src="./img/ceremony-1-red.png">
+                <div class="text-black uppercase pt-2">
+                  Ceremony
+                </div>
+                <div class="text-black text-opacity-70 pt-4">
+                  3:30PM - 7:00PM
+
+                </div>
+              </div>
+            </div>
+
+            <div class="1/3">
+              <div>
+                <img class="mx-auto" src="./img/party-1-red.png">
+                <div class="text-black uppercase pt-2">
+                  After Party
+                </div>
+                <div class="text-black text-opacity-70 pt-4">
+                  7:00PM Onward
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        <div class="text-black text-center text-opacity-70 pt-16">
+          <p>Garden Tuscana Reception Hall
+          <br>1940 E Main St
+          <br>Mesa, AZ 85203
+          </p>
+        </div>
+
+        </div>
+
+
+        <!-- Map Section -->
+        <div class="bg-blue px-48 py-32">
+          <div class="font-serif pb-2 text-6xl text-white">
+            <p>Wedding Location</p>
+          </div>
+          <div id='map_geo' class='map w-full' style="height:500px;"> </div>
+        </div>
+          <script>
+          L.mapbox.accessToken = "pk.eyJ1Ijoid2lyZWRhY29ybiIsImEiOiJja3B0aXp1cnUwMTMyMm5tem9kZzB4Y3RhIn0.iNBSsbngJTTMFETfjO-Diw"
+          var geojson = [
+          {
+            "type": "FeatureCollection",
+            "features": [{ "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.78994538030375, 33.416857115164674]
+                },
+                "properties": {
+                    "title": "Garden Tuscana Reception Hall",
+                    "description": "1940 E Main St <br> Mesa, AZ 85203",
+                    "marker-size": "medium",
+                    "marker-symbol": "heart",
+                    "marker-color": "#486d84",
+                    "stroke": "#555555",
+                    "stroke-opacity": 0.0,
+                    "stroke-width": 0,
+                    "fill": "#486d84",
+                    "fill-opacity": 1
+                }
+              }]
+          }
+          ];
+          
+          var mapGeo = L.mapbox.map('map_geo')
+            .setView([33.416857115164674, -111.78994538030375], 13)
+            .addLayer(L.mapbox.styleLayer('mapbox://styles/wiredacorn/ckptj5dxh1vdt19ntqfs0pl6m'));
+          
+          var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapGeo);
+          mapGeo.scrollWheelZoom.disable();
+          </script>
+
+          <!-- End Map Section -->
+        
+        <!-- Bridesmaids and Groomsmen Section -->
+        
+        <div class="bg-red-light px-48 py-32">
+          <div class="flex flex-row border-2 border-lightblue border-opacity-25 p-16">
+
+            <div class="flex flex-col max-w-1/2 w-max-content mx-auto">
+              <div class="font-serif text-6xl pb-8">
+                Bridesmaids
+              </div>
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Melissa Tuner
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Maid of Honor
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Jocelyn Collins
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Bridesmaid
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Cortney Nitz
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Bridesmaid
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Ashlea Lavender
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Bridesmaid
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+              <!-- Bridesmaid -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Melissa Foster
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Bridesmaid
+                  </div>
+                </div>
+              </div>
+              <!-- End Bridesmaid -->
+
+            </div>
+
+            <div class="flex flex-col max-w-1/2 w-max-content mx-auto">
+              <div class="font-serif text-6xl text-black pb-8">
+                Groomsmen
+              </div>
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Josh Shaw
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Best Man
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Brandon Lavender
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Groomsman
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Nick Larson
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Groomsman
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    Kevin Montgomery
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Groomsman
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+              <!-- Groomsman -->
+              <div class="flex row py-4">
+                <img class="rounded-full shadow-lg" src="./img/profile.png">
+                <div class="flex flex-col justify-center pl-4">
+                  <div class="font-bold font-sans pb-2">
+                    James Nitz
+                  </div>
+                  <div class="italic font-light opacity-50 font-sans pb-2">
+                    Groomsman
+                  </div>
+                </div>
+              </div>
+              <!-- End Groomsman -->
+
+
+
+            </div>
+
+          </div>
+        </div>
+        <!-- End Bridesmaid and Groomsman Section -->
+
+            
+      </div>
+    </main>
+  </body>
+</html>
+

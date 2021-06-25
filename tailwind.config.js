@@ -7,7 +7,16 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    aspectRatio: {
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+    },
     extend: {
+      spacing: {
+        'full': '100%'
+      },
       fontFamily: {
         'serif': ['Tangerine', 'cursive'],
         'sans': ['Muli', 'notcursive'],
@@ -27,8 +36,10 @@ module.exports = {
           
         },
         "blue": {
-          light: '#CCD3FA',
-          DEFAULT: '#323b5a'
+          lightalt: '#CCD3FA',
+          light: '#e7edf1',
+          DEFAULT: '#323b5a',
+          dark: '#323b5a'
 
         }
       }
@@ -37,5 +48,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }

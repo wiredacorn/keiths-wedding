@@ -12,7 +12,9 @@
     "build-prod": "cross-env NODE_ENV=production postcss src/tailwind.css -o public/build/tailwind.css"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.1",
     "dotenv": "^8.6.0",
+    "glightbox": "^3.0.9",
     "google-spreadsheet": "^3.1.15"
   },
   "devDependencies": {
