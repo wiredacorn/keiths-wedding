@@ -56,7 +56,7 @@
               <div class="relative flex sm:flex-wrap items-center justify-between h-16">
                 <!-- Left navigation -->
                 <!-- Logo -->
-                <div class="flex-1 flex items-left sm:items-center justify-left sm:items-stretch sm:justify-start">
+                <div class="flex-1 flex flex-col md:flex-row items-left sm:items-center justify-left sm:items-stretch sm:justify-start">
 
                   <div class="sm:block content-center">
                     <h1 class="font-serif text-2xl h-16 sm:h-10 flex align-center justify-center content-center items-center py-5 font-medium leading-6">
@@ -66,7 +66,7 @@
                 </div>
                 <!-- Right navigation -->
                 <!-- Links -->
-                <div class="flex items-center justify-center sm:items-stretch sm:justify-end">
+                <div class="hidden md:flex items-center justify-center sm:items-stretch sm:justify-end">
                   <a href="#rsvp" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     RSVP
                   </a>
@@ -86,7 +86,7 @@
         <!-- Hero -->
         <div style="height:80vh;" class="mt-2/5 relative flex z-1 w-max-content mx-auto h-screen">
           
-          <div class="px-48 z-10 foreground bg-transparent mx-auto mt-48">
+          <div class="md:px-48 z-10 foreground bg-transparent mx-auto mt-48">
             <h1 class="tracking-widest font-light uppercase text-4xl font-sans text-center text-white mx-auto size-8">
               We're getting married!
             </h1>
@@ -98,18 +98,18 @@
         <!-- Form Section 1/2 Width -->
         <div class="relative overflow">
           <div class="flex bg-lightblue">
-            <div class="flex w-8/12 mx-auto">
+            <div class="flex w-10/12 md:w-8/12 mx-auto flex-col md:flex-row">
             <div id="rsvp" class="h-12"></div>
-              <div class="form-wrapper bg-white shadow-lg relative z-20 w-1/2 ml-auto mr-4 px-8 -mt-20 -mb-20">
+              <div class="form-wrapper bg-white shadow-lg relative z-20 w-full md:w-1/2 ml-auto md:mr-4 px-8 py-8 pt-16 md:-mt-20 -mb-20">
                 <!-- Half Width -->
-                <div class="p-8 pt-16">
+                <div class="">
                     <p class="tracking-widest font-light uppercase text-2xl font-sans text-blue">
                       Will You Attend?
                     </p>
                     <!-- Form -->
                     <form id="rsvp-form" action="#" method="POST" class="visible">
                       <!-- Form Grid Wrapper -->
-                      <div class="pt-8 space-y-6 sm:py-6">
+                      <div class="py-8 space-y-6 sm:py-6">
       
                         <!-- Input Field -->
                         <div class="col-span-3 sm:col-span-1">
@@ -136,16 +136,19 @@
                               Attending?
                             </legend>
                           </div>
-                          <div class="bg-blue max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                          <div class="flex flex-wrap gap-1">
+                            <div class="bg-blue flex-grow min-w-full md:min-w-max md:max-w-max block md:inline-flex" style="padding:5px">
                               <a href="#" id="attendingYes" onClick="attendingYes(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
                                 Yes
                               </a>
                             </div>
-                            <div class="bg-blue max-w-max min-h-max min-w-max inline-flex" style="padding:5px">
+                            <div class="bg-blue flex-grow min-w-full md:min-w-max md:max-w-max block md:inline-flex" style="padding:5px">
                               <a href="#" id="attendingNo" onClick="attendingNo(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
                                 No
                               </a>
                             </div>
+                          </div>
+                          
                           <fieldset id="entrance-length" class="hidden">
                             <div class="mt-4">
                               <div class="flex items-center">
@@ -179,7 +182,7 @@
       
                       <!-- Submit Button -->
                         <input type="submit" class="hidden">
-                        <div class="bg-blue max-w-max min-h-max min-w-max" style="padding:5px">
+                        <div class="bg-blue w-full md:max-w-max" style="padding:5px">
                           <a href="#" id="form-submit-btn" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-8 py-2 block">
                             RSVP
                           </a>
@@ -196,8 +199,8 @@
               <div id="details" class="h-12"></div>
 
 
-              <div class="relative z-20 w-1/2 ml-4 relative pt-48 pb-16 px-8 pl-4 flex flex-col justify-center align-middle">
-                <div class="text-6xl w-max font-serif text-red-dark">
+              <div class="relative z-20 md:w-1/2 m-auto md:ml-4 relative pt-24 md:pt-48 pb-72 md:pb-16 md:px-8 md:pl-4 flex flex-col justify-center align-middle">
+                <div class="text-4xl lg:text-6xl w-max font-serif text-red-dark">
                   Wedding Date
                 </div>
                 <div class="w-max font-sans uppercase text-sm">
@@ -218,13 +221,13 @@
                 <div class="z-0 absolute" style="height:400px; bottom:-100px; right:-100px">
                   <img class="h-full w-full object-contain" src="./img/bigleaf-red.png">
                 </div>
-                <div class="z-2 absolute h-72 w-auto left-2 right-0 -top-28">
+                <div class="z-2 absolute h-48 md:h-72 w-auto left-[-40%] md:left-2 md:right-0 -top-28">
                   <img class="h-full w-full object-contain" src="./img/flower-red-l.png">
                 </div>
                 <div class="z-2 absolute" style="height:300px; bottom: -50px; left:-70px">
                   <img class="h-full w-full object-contain" src="./img/smallphoto1.png">
                 </div>
-                <div class="z-2 absolute" style="height:400px; right:-100px">
+                <div class="z-2 absolute -top-28 md:top-0" style="height:400px; right:-100px">
                   <img class="h-full w-full object-contain" src="./img/smallphoto2.png">
                 </div>
               </div>  
@@ -238,17 +241,17 @@
           <div class="flex flex-row justify-around">
             <img class="" src="./img/leaf.png">
           </div>
-          <div class="font-serif text-6xl text-center text-blue pb-20">
-            When
-            <span class="dot bg-blue"></span>
-            &
-            <span class="dot bg-blue"></span>
-            Where
-            <style>.dot {margin-bottom:6px;margin-left:10px;margin-right:10px;height:6px;width:6px;border-radius:250px;display:inline-block;}</style>
+          <div class="flex flex-col md:block font-serif text-6xl text-center text-blue pb-20">
+            <span>When</span>
+            <span class="dot bg-blue hidden md:inline-block"></span>
+            <span>&</span>
+            <span class="dot bg-blue hidden md:inline-block"></span>
+            <span>Where</span>
+            <style>.dot {margin-bottom:6px;margin-left:10px;margin-right:10px;height:6px;width:6px;border-radius:250px;}</style>
           </div>
           
-          <div class="flex flex-row w-full justify-evenly text-center">
-            <div class="1/3">
+          <div class="flex flex-col sm:flex-row w-full justify-evenly text-center">
+            <div class="1/3 pb-8 sm:pb-0">
               <div class="">
                 <img class="mx-auto" src="./img/reception-1-blue.png">
                 <div class="text-black uppercase pt-2">
@@ -260,7 +263,7 @@
               </div>
             </div>
 
-            <div class="1/3">
+            <div class="1/3 pb-8 sm:pb-0">
               <div>
                 <img class="mx-auto" src="./img/ceremony-1-blue.png">
                 <div class="text-black uppercase pt-2">
@@ -273,7 +276,7 @@
               </div>
             </div>
 
-            <div class="1/3">
+            <div class="1/3 pb-8 sm:pb-0">
               <div>
                 <img class="mx-auto" src="./img/party-1-blue.png">
                 <div class="text-black uppercase pt-2">
