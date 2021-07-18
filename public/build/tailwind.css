@@ -643,8 +643,8 @@ video {
 .grid-flow-row-dense {
 	grid-auto-flow: row dense;
 }
-.grid-cols-4 {
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+.grid-cols-1 {
+	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 .flex-col {
 	flex-direction: column;
@@ -1094,6 +1094,9 @@ video {
 		max-width: -webkit-max-content;
 		max-width: -moz-max-content;
 		max-width: max-content;
+	}
+	.md\:grid-cols-4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 	.md\:flex-row {
 		flex-direction: row;
