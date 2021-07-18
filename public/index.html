@@ -137,12 +137,12 @@
                             </legend>
                           </div>
                           <div class="flex flex-wrap gap-1">
-                            <div class="bg-blue flex-grow min-w-full md:min-w-max md:max-w-max block md:inline-flex" style="padding:5px">
+                            <div class="bg-blue mb-1 flex-grow min-w-full md:min-w-max md:max-w-max block md:inline-flex" style="padding:5px">
                               <a href="#" id="attendingYes" onClick="attendingYes(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
                                 Yes
                               </a>
                             </div>
-                            <div class="bg-blue flex-grow min-w-full md:min-w-max md:max-w-max block md:inline-flex" style="padding:5px">
+                            <div class="bg-blue mb-1 flex-grow min-w-full md:min-w-max md:max-w-max block md:inline-flex" style="padding:5px">
                               <a href="#" id="attendingNo" onClick="attendingNo(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
                                 No
                               </a>
@@ -307,166 +307,174 @@
         </div>
 
         <!-- Bridesmaids and Groomsmen Section -->
-        
-        <div class="bg-transparent" style="background: linear-gradient(90deg, #dcbfc1 50%, #e7edf1 50%);">
-          <div class="flex flex-row w-8/12 mx-auto">
+        <style>
+          @media screen and (min-width:768px) {
+            .split-bg{
+              background: linear-gradient(90deg, #dcbfc1 50%, #e7edf1 50%)
+            };
+          }
 
-            <div class="py-32 flex flex-col w-max-content mx-auto">
-              <div class="font-serif text-6xl pb-8">
-                Bridesmaids
-              </div>
+        </style>
+        <div class="bg-transparent split-bg" style="">
+          <div class="flex flex-col md:flex-row w-full md:w-8/12 mx-auto">
+            <div class="bg-red-light w-full">
+              <div class="py-32 flex flex-col w-max-content mx-auto">
+                <div class="font-serif text-6xl pb-8 text-center">
+                  Bridesmaids
+                </div>
+                <div class="flex flex-col w-max-content mx-auto">
+                  <!-- Bridesmaid -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Melissa Tuner
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Maid of Honor
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Bridesmaid -->
 
-              <!-- Bridesmaid -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Melissa Tuner
+                  <!-- Bridesmaid -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Jocelyn Collins
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Bridesmaid
+                      </div>
+                    </div>
                   </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Maid of Honor
+                  <!-- End Bridesmaid -->
+
+                  <!-- Bridesmaid -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Cortney Nitz
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Bridesmaid
+                      </div>
+                    </div>
                   </div>
+                  <!-- End Bridesmaid -->
+
+                  <!-- Bridesmaid -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Ashlea Lavender
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Bridesmaid
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Bridesmaid -->
+
+                  <!-- Bridesmaid -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Melissa Foster
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Bridesmaid
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Bridesmaid -->
                 </div>
               </div>
-              <!-- End Bridesmaid -->
-
-              <!-- Bridesmaid -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Jocelyn Collins
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Bridesmaid
-                  </div>
-                </div>
-              </div>
-              <!-- End Bridesmaid -->
-
-              <!-- Bridesmaid -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Cortney Nitz
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Bridesmaid
-                  </div>
-                </div>
-              </div>
-              <!-- End Bridesmaid -->
-
-              <!-- Bridesmaid -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Ashlea Lavender
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Bridesmaid
-                  </div>
-                </div>
-              </div>
-              <!-- End Bridesmaid -->
-
-              <!-- Bridesmaid -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Melissa Foster
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Bridesmaid
-                  </div>
-                </div>
-              </div>
-              <!-- End Bridesmaid -->
-
             </div>
-
-            <div class="py-32 flex flex-col max-w-1/2 w-max-content mx-auto bg-blue-light">
-              <div class="font-serif w-8/12 text-6xl text-black pb-8">
-                Groomsmen
-              </div>
-
-              <!-- Groomsman -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Josh Shaw
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Best Man
-                  </div>
+            <div class="bg-blue-light w-full">
+              <div class="py-32 flex flex-col max-w-1/2 w-max-content mx-auto">
+                <div class="font-serif text-6xl text-black pb-8 text-center">
+                  Groomsmen
                 </div>
-              </div>
-              <!-- End Groomsman -->
+                <div class="flex flex-col w-max-content mx-auto">
+                  <!-- Groomsman -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Josh Shaw
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Best Man
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Groomsman -->
 
-              <!-- Groomsman -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Brandon Lavender
+                  <!-- Groomsman -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Brandon Lavender
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Groomsman
+                      </div>
+                    </div>
                   </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Groomsman
+                  <!-- End Groomsman -->
+
+                  <!-- Groomsman -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Nick Larson
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Groomsman
+                      </div>
+                    </div>
                   </div>
+                  <!-- End Groomsman -->
+
+                  <!-- Groomsman -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        Kevin Montgomery
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Groomsman
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Groomsman -->
+
+                  <!-- Groomsman -->
+                  <div class="flex row py-4">
+                    <img class="rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center pl-4">
+                      <div class="font-bold font-sans pb-2">
+                        James Nitz
+                      </div>
+                      <div class="italic font-light opacity-50 font-sans pb-2">
+                        Groomsman
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Groomsman -->
                 </div>
+
+
               </div>
-              <!-- End Groomsman -->
-
-              <!-- Groomsman -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Nick Larson
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Groomsman
-                  </div>
-                </div>
-              </div>
-              <!-- End Groomsman -->
-
-              <!-- Groomsman -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    Kevin Montgomery
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Groomsman
-                  </div>
-                </div>
-              </div>
-              <!-- End Groomsman -->
-
-              <!-- Groomsman -->
-              <div class="flex row py-4">
-                <img class="rounded-full shadow-lg" src="./img/profile.png">
-                <div class="flex flex-col justify-center pl-4">
-                  <div class="font-bold font-sans pb-2">
-                    James Nitz
-                  </div>
-                  <div class="italic font-light opacity-50 font-sans pb-2">
-                    Groomsman
-                  </div>
-                </div>
-              </div>
-              <!-- End Groomsman -->
-
-
-
             </div>
-
           </div>
         </div>
         <!-- End Bridesmaid and Groomsman Section -->
@@ -542,67 +550,108 @@
               <div class="text-6xl w-full font-serif text-blue">
                 Gallery
               </div>
-
+              
               <div class="grid gap-4 grid-flow-row-dense p-1 grid-cols-4 w-full justify-around mt-16">
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/smallphoto1.png" />
-                    </a>
+                <a href="./img/smallphoto1.png" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/smallphoto1.png" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/smallphoto1.png" />
-                    </a>
+                <a href="./img/smallphoto1.png" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/smallphoto1.png" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
-                  <div class="pb-full bg-white relative h-0">
-                    <a href="./img/table.jpg" class="shadow hover:shadow-lg absolute border-12 border-b-40 border-white radius-0 h-full w-full top-0 bottom-0 left-0 right-0 rounded-md" data-gallery="gallery1">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                    </a>
+                <a href="./img/table.jpg" class="" data-gallery="gallery1">
+                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                    <div class="pb-full relative h-0">
+                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
+                      </div>
+                    </div>
                   </div>
+                </a>
 
                   </a>
 
@@ -612,22 +661,28 @@
 
 
           <!-- Contact Area -->
-          <div class="bg-red-dark font-sans">
+          <div class="bg-white not-bg-red-dark font-sans">
             <div class="w-8/12 mx-auto text-white py-24">
 
-              <div class="text-6xl w-full text-center font-serif text-white">
+              <div class="hidden text-6xl w-full text-center font-serif text-white">
                 Contact
               </div>
+              <div class="sm:block content-center">
+                <h1 class="text-black font-serif text-2xl h-16 sm:h-10 flex align-center justify-center content-center items-center py-5 font-medium leading-6">
+                  Keith and Kylee
+                </h1>
 
-              <div class="flex w-full bg-red-light rounded-md justify-around mt-16">
+              <div class="flex flex-col md:flex-row min-w-max justify-around mt-16 mx-auto">
 
                 <div class="block p-4 text-blue">
-                  <p class="font-serif text-bold text-4xl">Keith Foster</p>
+                  <p class="hidden font-serif text-bold text-4xl">Keith Foster</p>
+                  <p>Keith Foster</p>
                   <a href="mailto:keithpfoster1996@gmail.com">keithpfoster1996@gmail.com</a><br>
                   <a href="tel:9289515256">928-951-5256</a>
                 </div>
                 <div class="block p-4 text-blue">
-                  <p class="font-serif text-bold text-4xl">Kylee Guevara</p>
+                  <p class="hidden font-serif text-bold text-4xl">Kylee Guevara</p>
+                  <p>Kylee Guevara</p>
                   <a href="mailto:kguevara258@gmail.com">kguevara258@gmail.com</a><br>
                   <a href="tel:9289510034">928-951-0034</a>
                 </div>
