@@ -86,6 +86,7 @@ window.onload = function() {
       console.log(formObject)
       console.log(bodyData)
       // Add RSVP to sheet
+      console.log("Sending to API...")
       fetch('/.netlify/functions/google-spreadsheet-fn', {
         method: 'POST',
         body: bodyData,
