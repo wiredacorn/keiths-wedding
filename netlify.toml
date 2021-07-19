@@ -1,6 +1,8 @@
 [build]
   publish = "public"
   command = "npm run build-prod"
+  functions = "./functions"
+  publish = "public/"
 
 [build-dev]
   command = "npm run build-dev"
@@ -19,6 +21,8 @@
   command = "npm run serve"
   framework = "#custom"
   targetPort = 8888
+  functions = "./functions"
+  publish = "public/"
 
 # same as dev command
 [serve-dev]
