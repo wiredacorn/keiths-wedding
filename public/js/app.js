@@ -75,7 +75,7 @@ window.onload = function() {
 
 
     // console.log(formObject)
-    if (validateEmail(formObject.email_address)) {
+    if (validateEmail(formObject.email)) {
       //console.log(formObject.email_address)
       bodyData = JSON.stringify({
         "Name": formObject["name"],
@@ -94,13 +94,10 @@ window.onload = function() {
         //.then(log)
         // .then(console.log(log))
         //.catch(error);
-      
-      // Update Results Page
-      calculate(guid, true);
+    
     } else {
       console.log(formObject)
       const inputField = document.getElementById('emailAddress');
-      inputField.classList.add('bg-error');
       inputField.addEventListener('click', (event) => {
         inputField.classList.remove('bg-error');
       });
