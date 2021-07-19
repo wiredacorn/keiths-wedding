@@ -2,7 +2,6 @@
   publish = "public"
   command = "npm run build-prod"
   functions = "./functions"
-  publish = "public/"
 
 [build-dev]
   command = "npm run build-dev"
