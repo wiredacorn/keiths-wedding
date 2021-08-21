@@ -73,7 +73,7 @@
                   <a href="#details" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     Wedding Details
                   </a>
-                  <a href="#gallery" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                  <a href="#gallery" style="display:none!important;" class="hidden disable-md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     Gallery
                   </a>
                 </div>
@@ -235,7 +235,7 @@
                 <div class="z-0 absolute" style="height:400px; bottom:-100px; right:-100px">
                   <img class="h-full w-full object-contain" src="./img/bigleaf-red.png">
                 </div>
-                <div class="z-10 absolute h-48 md:h-72 w-auto left-[-39%] md:left-2 md:right-0 top-[6%] md:-top-28">
+                <div class="z-10 absolute h-48 md:h-72 w-auto left-[-190px] md:left-2 md:right-0 top-[6%] md:-top-28">
                   <img class="h-full w-full object-contain" src="./img/flower-red-l.png">
                 </div>
                 <div class="z-2 absolute" style="height:400px; width:300px; bottom: -50px; left:-20px; transform:rotate(-18deg)">
@@ -244,7 +244,12 @@
                     <p name="caption" class="hidden font-serif text-2xl">Caption 1</p>
                   </div>
                 </div>
-                <div class="z-2 absolute -top-28 md:top-0" style="height:350px; width:350px; right:-50px; transform:rotate(12deg);  top:-60px!important">
+                <style>@media screen and (max-width:768px) {
+                  #secondPic {
+                    right:-50px!important;
+                  }
+                }</style>
+                <div id="secondPic" class="z-2 absolute -top-28 md:top-0" style="height:350px; width:350px; right:calc(-300px + 16vw); transform:rotate(12deg);  top:-60px!important">
                   <div name="wrapper" style="height: 100%;width:100%; background:white; padding:15px; padding-bottom:45px; box-shadow:0px 0px 15px rgba(0,0,0,0.1)">
                     <img class="h-full w-full object-cover" src="./img/gallery/img-8.jpg">
                     <p name="caption" class="hidden font-serif text-2xl">Caption 2</p>
@@ -565,7 +570,7 @@
 
 
           <!-- Gallery Area -->
-          <div class="bg-blue-light font-sans mx-8 mt-8">
+          <div class="bg-blue-light font-sans mx-8 mt-8" style="display:none">
             <div class="w-8/12 mx-auto text-white py-24">
 
               <div class="text-6xl w-full text-center font-serif text-blue">
