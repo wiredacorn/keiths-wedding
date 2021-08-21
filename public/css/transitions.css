@@ -91,6 +91,7 @@
 
 #hero-img {
   background-position:center;
+  background-position:right;
 }
 
 .profilePictures {
@@ -115,6 +116,7 @@
   }
   #hero-img {
     background-position:top left 35%;
+    background-position:top left 60%;
   }
   }
 
