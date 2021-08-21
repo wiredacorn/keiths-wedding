@@ -73,7 +73,7 @@
                   <a href="#details" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     Wedding Details
                   </a>
-                  <a href="#gallery" style="display:none!important;" class="hidden disable-md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
+                  <a href="#galleryArea" style="" class="hidden md:flex hover:bg-gray-50 hover:text-black block px-3 py-2 rounded-md text-base font-medium">
                     Gallery
                   </a>
                 </div>
@@ -86,7 +86,7 @@
         <!-- Hero -->
         <div style="height:80vh;" class="mt-2/5 relative flex z-1 w-max-content mx-auto h-screen">
           <div class="z-10 md:w-8/12 mx-auto">
-            <div class="max-w-max foreground bg-transparent ml-auto disable-md:mt-48 md:mt-96">
+            <div class="max-w-max foreground bg-transparent ml-auto md:mt-48 disable-md:mt-96">
               <div class="tapeFont tracking-widest font-light uppercase text-4xl font-sans text-right text-white size-8 p-4 block">
                 <span>We're</span><br class='hide-on-mobile'>
                 <span>Getting</span><br class='hide-on-mobile'>
@@ -100,7 +100,7 @@
             </div>
           </div>
           
-          <div id="hero-img" class="px-48 z-0 background absolute top-0 bottom-0 left-0 right-0 bg-cover" style="background-image:url('img/gallery/img-48.jpg'); filter:grayscale(1);"></div>
+          <div id="hero-img" class="px-48 z-0 background absolute top-0 bottom-0 left-0 right-0 bg-cover" style="background-image:url('img/gallery/img-7.jpg'); filter:grayscale(1);"></div>
         </div>
         <!-- End Hero -->
 
@@ -261,7 +261,7 @@
         </div> <!-- Relative Section Wrapper -->
 
         <!-- When & Where -->
-        <div id="details" class="bg-white mx-auto py-72">
+        <div id="details" class="bg-white mx-auto pt-72 pb-40">
           <div class="bg-white w-8/12 mx-auto">
           <div class="flex flex-row justify-around">
             <img class="" src="./img/leaf.png">
@@ -556,7 +556,7 @@
         
           <!-- Registry -->
           <div class="bg-white" style="">
-            <div class="w-8/12 mx-auto text-center py-24">
+            <div class="w-8/12 mx-auto text-center pt-24 pb-24 disable-pb-4">
 
                   <div class="bg-blue max-w-max mx-auto " style="padding:5px">
                     <a href="https://www.myregistry.com/wedding-registry/keith-foster-and-kylie-guevara-payson-az/2964499" id="form-submit-btn" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-8 py-2 block">
@@ -570,7 +570,7 @@
 
 
           <!-- Gallery Area -->
-          <div class="bg-blue-light font-sans mx-8 mt-8" style="display:none">
+          <div id="galleryArea" class="bg-blue-light font-sans mx-8 mt-8" style="">
             <div class="w-8/12 mx-auto text-white py-24">
 
               <div class="text-6xl w-full text-center font-serif text-blue">
@@ -596,10 +596,11 @@
                  gallery.innerHTML = galleryhtml;
                 })                  
               </script>
-              <div id="gallery" style="display:none" class="grid gap-4 grid-flow-row-dense p-1 grid-cols-1 md:grid-cols-4 w-full justify-around mt-16">
+              <div id="disable-gallery" style="display:none;" class="grid gap-4 grid-flow-row-dense p-1 grid-cols-1 md:grid-cols-4 w-full justify-around mt-16">
               </div>
             </div>
           </div>
+          <!-- End Gallery -->
 
 
           <!-- Contact Area -->
