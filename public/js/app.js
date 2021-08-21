@@ -1,5 +1,4 @@
 // Form Page
-checked = true
 // Click radio buttons.
 function attendingYes(event) {
   event.preventDefault();
@@ -17,6 +16,82 @@ function attendingNo(event) {
   document.getElementById('attendingYes').classList.remove('checked')
   document.getElementById('attendingNo').classList.add('checked')
 }
+
+
+function showMessage() {
+  formArea = document.getElementById("formArea");
+  successMsgAttending = document.getElementById("successMsgAttending");
+  successMsgNotAttending = document.getElementById("successMsgNotAttending");
+
+  if (formObject.attending == "yes") {
+    formArea.classList.add("hidden");
+    successMsgAttending.classList.remove("hidden");
+  } else if (formObject.attending == "no") {
+    formArea.classList.add("hidden");
+    successMsgNotAttending.classList.remove("hidden");
+  }
+
+}
+
+function validateFields() {
+  
+  formArea = document.getElementById("formArea");
+  nameArea = document.getElementById("namefield");
+  emailArea = document.getElementById("emailfield");
+  attendingArea = document.getElementById("attendingBoxes");
+  allergiesArea = document.getElementById("allergiesfield");
+
+  if (formObject.name.length == 0) {
+    nameArea.classList.add("error");
+    nameMsg.classList.remove("hidden");
+  }
+  if (validateEmail(formObject.email) == false) {
+    emailArea.classList.add("error");
+    emailMsg.classList.remove("hidden");
+  }
+  if (formObject.attending == undefined) {
+    attendingArea.classList.add("error");
+    attendingMsg.classList.remove("hidden");
+  }
+
+  if (formObject.name.length != 0 && validateEmail(formObject.email) && formObject.attending != undefined) {
+    if (attendingArea.classList.contains("error")) {
+      attendingArea.classList.remove("error");
+      nameMsg.classList.add("hidden");
+    }
+    if (emailArea.classList.contains("error")) {
+      emailArea.classList.remove("error");
+      emailMsg.classList.add("hidden");
+    }
+    if (nameArea.classList.contains("error")) {
+      nameArea.classList.remove("error");
+      attendingMsg.classList.add("hidden");
+    }
+    return true
+  } else {
+    return false
+  }
+}
+
+
+
+function submitForm() {
+  const calculatorSubmit = document.getElementById('form-submit-btn');
+  calculatorSubmit.addEventListener('click', () => async (e) => {
+    e.preventDefault();
+    console.log("check this part")
+    fetch('/.netlify/functions/google-spreadsheet-fn', {
+      method: 'POST',
+      body: new FormData(calculatorSubmit)
+    })
+        .then((res) => res.json());
+        //.then(log)
+        //.then(console.log(log))
+        //.catch(error);
+    })
+}
+
+
 
 function validateEmail(email) {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -41,6 +116,7 @@ async function getPrev() {
 }
 
 window.onload = function() {
+
   console.log("onload function running")
   // Pressing enter key clicks the submit button.
   window.addEventListener('keydown',function(e){
@@ -57,13 +133,27 @@ window.onload = function() {
   const submitButton = document.getElementById('rsvp-btn');
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
-    const inputField = document.getElementById('emailAddress');
-    var formData = new FormData(document.getElementById('rsvp-form'));
+
     
-    var formObject = {};
+
+    const inputField = document.getElementById('emailAddress');
+    formData = new FormData(document.getElementById('rsvp-form'));
+    
+    formObject = {};
     formData.forEach(function(value, key){
       formObject[key] = value;
     });
+
+    console.log(formObject);
+    formComplete = validateFields(formObject);
+
+    if (formComplete) {
+      submitForm();
+    } else {
+      console.log("something wrong with form.")
+    }
+
+
     if (checked) {
       formObject["attending"] = 'yes'
     } else {
@@ -75,7 +165,7 @@ window.onload = function() {
 
 
     // console.log(formObject)
-    if (validateEmail(formObject.email)) {
+    if (validateFields()) {
       //console.log(formObject.email_address)
       bodyData = JSON.stringify({
         "Name": formObject["name"],
@@ -95,7 +185,7 @@ window.onload = function() {
         //.then(log)
         // .then(console.log(log))
         //.catch(error);
-    
+        showMessage();
     } else {
       console.log(formObject)
       const inputField = document.getElementById('emailAddress');
@@ -105,18 +195,7 @@ window.onload = function() {
     }
   });
     
-  const calculatorSubmit = document.getElementById('form-submit-btn');
-  calculatorSubmit.addEventListener('click', () => async (e) => {
-    e.preventDefault();
-    fetch('/.netlify/functions/google-spreadsheet-fn', {
-      method: 'POST',
-      body: new FormData(calculatorSubmit)
-    })
-        .then((res) => res.json());
-        //.then(log)
-        //.then(console.log(log))
-        //.catch(error);
-    })
+  
 };
 
 

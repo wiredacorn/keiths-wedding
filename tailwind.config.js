@@ -65,7 +65,9 @@ module.exports = {
           light: '#e7edf1',
           DEFAULT: '#323b5a',
           dark: '#323b5a'
-
+        },
+        "offwhite": {
+          DEFAULT: '#f9f9f9'
         }
       }
     }

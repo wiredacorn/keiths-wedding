@@ -77,6 +77,68 @@
 
 
 
+.tapeFont {
+  text-align:right!important;
+}
+.tapeFont span {
+  display:inline-flex!important;
+  background:rgba(0,0,0,0.4);
+  padding:2px 5px;
+  margin-bottom:5px;
+  text-align:right!important;
+  font-weight:bold;
+}
+
+#hero-img {
+  background-position:center;
+}
+
+.profilePictures {
+  display:none;
+}
+
+@media screen and (max-width:768px) {
+  .show-on-mobile.hidden {
+    display:inherit!important;
+  }
+  .hide-on-mobile {
+    display:none!important;
+  }
+  .tapeFont {
+    display:inline-block!important;
+    padding-left:15px;
+    text-align:left!important;
+    color:white;
+  }
+  .tapeFont span {
+    text-align:left!important;
+  }
+  #hero-img {
+    background-position:top left 35%;
+  }
+  }
+
+
+input.error,
+#attendingBoxes.error > div {
+  background: #eee1e2;
+  color:black!important;
+}
+#attendingBoxes.error > div {
+  border-color: #eee1e2
+}
+
+#attendingBoxes.error .checked.fancy-border:before,
+#attendingBoxes.error .checked.fancy-border:after {
+  border-color:black;
+
+}
+#attendingBoxes.error > div a {
+  color:black
+}
+
+
+
 .fancy-border-red {
     display: block;
     position: relative;

@@ -85,13 +85,22 @@
 
         <!-- Hero -->
         <div style="height:80vh;" class="mt-2/5 relative flex z-1 w-max-content mx-auto h-screen">
-          
-          <div class="md:px-48 z-10 foreground bg-transparent mx-auto mt-48">
-            <h1 class="tracking-widest font-light uppercase text-4xl font-sans text-center text-white mx-auto size-8">
-              We're getting married!
-            </h1>
+          <div class="z-10 md:w-8/12 mx-auto">
+            <div class="max-w-max foreground bg-transparent ml-auto md:mt-48">
+              <div class="tapeFont tracking-widest font-light uppercase text-4xl font-sans text-right text-white size-8 p-4 block">
+                <span>We're</span><br class='hide-on-mobile'>
+                <span>Getting</span><br class='hide-on-mobile'>
+                <span>Married</span><br class='hide-on-mobile'>
+               </div>
+              <!-- 
+                <h1 class="tracking-widest font-light uppercase text-4xl font-sans text-right text-black size-8 p-4 block bg-white" style="text-align: right;">
+                  We're<span class="show-on-mobile hidden"> </span><br class="hide-on-mobile">getting<span class="show-on-mobile hidden"> </span><br class="hide-on-mobile">married!
+                </h1>
+              -->
+            </div>
           </div>
-          <div class="px-48 z-0 background absolute top-0 bottom-0 left-0 right-0 bg-cover" style="background-image:url('img/table.jpg'); filter:grayscale(1);"></div>
+          
+          <div id="hero-img" class="px-48 z-0 background absolute top-0 bottom-0 left-0 right-0 bg-cover" style="background-image:url('img/gallery/img-7.jpg'); filter:grayscale(1);"></div>
         </div>
         <!-- End Hero -->
 
@@ -100,9 +109,11 @@
           <div class="flex bg-lightblue">
             <div class="flex w-10/12 md:w-8/12 mx-auto flex-col md:flex-row">
             <div id="rsvp" class="h-12"></div>
-              <div class="form-wrapper bg-white shadow-lg relative z-20 w-full md:w-1/2 ml-auto md:mr-4 px-8 py-8 pt-16 md:-mt-20 -mb-20">
+              <div class="form-wrapper bg-white shadow-lg relative z-20 w-full md:w-1/2 ml-auto md:mr-4 px-8 py-8 pt-16 mt-48 md:-mt-20 -mb-20">
                 <!-- Half Width -->
-                <div class="">
+                <div id="successMsgAttending" class="hidden text-center"><span class="text-4xl lg:text-6xl w-max font-serif text-black">Thank you!</span><br>We will see you soon!</div>
+                <div id="successMsgNotAttending" class="hidden text-center"><span class="text-4xl lg:text-6xl w-max font-serif text-black">Thank you!</span><br>Sorry you won't make it.<br>Check back soon for pictures!</div>
+                <div id="formArea" class="">
                     <p class="tracking-widest font-light uppercase text-2xl font-sans text-blue">
                       Will You Attend?
                     </p>
@@ -113,8 +124,9 @@
       
                         <!-- Input Field -->
                         <div class="col-span-3 sm:col-span-1">
+                          <p id="nameMsg" class="text-sm hidden">Please enter your name.</p>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Name" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                            <input autocomplete="off" type="text" name="name" id="namefield" placeholder="Name" class="p-4 bg-offwhite text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                           </div>
                         </div>
                         <!-- End Input Field -->
@@ -123,20 +135,22 @@
       
                         <!-- Input Field -->
                         <div class="col-span-3 sm:col-span-1">
+                          <p id="emailMsg" class="text-sm hidden">Please enter your email address.</p>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input autocomplete="off" type="text" name="email" id="emailfield" placeholder="Email" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                            <input autocomplete="off" type="text" name="email" id="emailfield" placeholder="Email" class="p-4 bg-offwhite text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                           </div>
                         </div>
                         <!-- End Input Field -->
       
                         <!-- Radio Button -->
                         <div class="col-span-3 sm:col-span-1">
+                          <p id="attendingMsg" class="text-sm hidden">Please select one option.</p>
                           <div class="">
                             <legend class="block pl-2 mb-2 text-sm font-medium text-gray-400">
                               Attending?
                             </legend>
                           </div>
-                          <div class="flex flex-wrap gap-1">
+                          <div id="attendingBoxes" class="flex flex-wrap gap-1">
                             <div class="bg-blue mb-1 flex-grow min-w-full md:mr-1 md:min-w-max md:max-w-max block md:inline-flex" style="padding:5px">
                               <a href="#" id="attendingYes" onClick="attendingYes(event)" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-4 block">
                                 Yes
@@ -171,7 +185,7 @@
                         <!-- Input Field -->
                         <div class="col-span-3 sm:col-span-1">
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input autocomplete="off" type="text" name="allergies" id="allergiesfield" placeholder="Allergies?" class="text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
+                            <input autocomplete="off" type="text" name="allergies" id="allergiesfield" placeholder="Allergies?" class="p-4 bg-offwhite text-red border-b border-gray-300 hover:border-red focus:border-red p-1 pl-2 focus:border-0 flex-1 block w-full sm:text-sm">
                           </div>
                         </div>
                         <!-- End Input Field -->
@@ -199,7 +213,7 @@
               <div id="details" class="h-12"></div>
 
 
-              <div class="relative z-20 md:w-1/2 m-auto md:ml-4 relative pt-24 md:pt-48 pb-72 md:pb-16 md:px-8 md:pl-4 flex flex-col justify-center align-middle">
+              <div class="relative z-20 md:w-1/2 m-auto md:ml-4 relative pt-24 md:pt-48 pb-full md:pb-16 md:px-8 md:pl-4 flex flex-col justify-center align-middle">
                 <div class="text-4xl lg:text-6xl w-max font-serif text-red-dark">
                   Wedding Date
                 </div>
@@ -221,14 +235,20 @@
                 <div class="z-0 absolute" style="height:400px; bottom:-100px; right:-100px">
                   <img class="h-full w-full object-contain" src="./img/bigleaf-red.png">
                 </div>
-                <div class="z-2 absolute h-48 md:h-72 w-auto left-[-40%] md:left-2 md:right-0 -top-28">
+                <div class="z-10 absolute h-48 md:h-72 w-auto left-[-39%] md:left-2 md:right-0 top-[6%] md:-top-28">
                   <img class="h-full w-full object-contain" src="./img/flower-red-l.png">
                 </div>
-                <div class="z-2 absolute" style="height:300px; bottom: -50px; left:-70px">
-                  <img class="h-full w-full object-contain" src="./img/smallphoto1.png">
+                <div class="z-2 absolute" style="height:400px; width:300px; bottom: -50px; left:-20px; transform:rotate(-18deg)">
+                  <div name="wrapper" style="height: 100%;width:100%; background:white; padding:15px; padding-bottom:45px; box-shadow:0px 0px 15px rgba(0,0,0,0.1)">
+                    <img class="h-full w-full object-cover" style="object-position: center 30%;" src="./img/gallery/img-51.jpg">
+                    <p name="caption" class="hidden font-serif text-2xl">Caption 1</p>
+                  </div>
                 </div>
-                <div class="z-2 absolute -top-28 md:top-0" style="height:400px; right:-100px">
-                  <img class="h-full w-full object-contain" src="./img/smallphoto2.png">
+                <div class="z-2 absolute -top-28 md:top-0" style="height:350px; width:350px; right:-50px; transform:rotate(12deg);  top:-60px!important">
+                  <div name="wrapper" style="height: 100%;width:100%; background:white; padding:15px; padding-bottom:45px; box-shadow:0px 0px 15px rgba(0,0,0,0.1)">
+                    <img class="h-full w-full object-cover" src="./img/gallery/img-8.jpg">
+                    <p name="caption" class="hidden font-serif text-2xl">Caption 2</p>
+                  </div>
                 </div>
               </div>  
             </div>
@@ -324,8 +344,8 @@
                 <div class="flex flex-col w-max-content mx-auto">
                   <!-- Bridesmaid -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Melissa Tuner
                       </div>
@@ -338,8 +358,8 @@
 
                   <!-- Bridesmaid -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Jocelyn Collins
                       </div>
@@ -352,8 +372,8 @@
 
                   <!-- Bridesmaid -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Cortney Nitz
                       </div>
@@ -366,8 +386,8 @@
 
                   <!-- Bridesmaid -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Ashlea Lavender
                       </div>
@@ -380,8 +400,8 @@
 
                   <!-- Bridesmaid -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Melissa Foster
                       </div>
@@ -402,8 +422,8 @@
                 <div class="flex flex-col w-max-content mx-auto">
                   <!-- Groomsman -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Josh Shaw
                       </div>
@@ -416,8 +436,8 @@
 
                   <!-- Groomsman -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Brandon Lavender
                       </div>
@@ -430,8 +450,8 @@
 
                   <!-- Groomsman -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Nick Larson
                       </div>
@@ -444,8 +464,8 @@
 
                   <!-- Groomsman -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         Kevin Montgomery
                       </div>
@@ -458,8 +478,8 @@
 
                   <!-- Groomsman -->
                   <div class="flex row py-4">
-                    <img class="rounded-full shadow-lg" src="./img/profile.png">
-                    <div class="flex flex-col justify-center pl-4">
+                    <img class="profilePictures rounded-full shadow-lg" src="./img/profile.png">
+                    <div class="flex flex-col justify-center">
                       <div class="font-bold font-sans pb-2">
                         James Nitz
                       </div>
@@ -528,7 +548,7 @@
           <!-- End Map Section -->
         
           <!-- Registry -->
-          <div class="bg-white">
+          <div class="bg-white" style="display:none">
             <div class="w-8/12 mx-auto text-center py-24">
 
                   <div class="bg-blue max-w-max mx-auto " style="padding:5px">
@@ -543,117 +563,33 @@
 
 
           <!-- Gallery Area -->
-          <div class="bg-blue-light font-sans">
+          <div class="bg-blue-light font-sans mx-8 mt-8">
             <div class="w-8/12 mx-auto text-white py-24">
 
-              <div class="text-6xl w-full font-serif text-blue">
-                Gallery
+              <div class="text-6xl w-full text-center font-serif text-blue">
+                Gallery Comming Soon
               </div>
-
-              <div class="grid gap-4 grid-flow-row-dense p-1 grid-cols-1 md:grid-cols-4 w-full justify-around mt-16">
-                
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
+              <script>
+                document.addEventListener('DOMContentLoaded', function(event) {
+                 var gallery = document.getElementById("gallery");
+                 galleryhtml = ''
+                 for (let i = 1; i < 30; i++) {
+                   galleryhtml += 
+                    `<a href="./img/gallery/img-`+i+`.jpg" class="" data-gallery="gallery1">
+                <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
+                  <div class="pb-full relative h-0">
+                    <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
+                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/gallery/img-`+i+`.jpg" />
                     </div>
                   </div>
-                </a>
-
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/smallphoto1.png" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/smallphoto1.png" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/smallphoto1.png" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/smallphoto1.png" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="./img/table.jpg" class="" data-gallery="gallery1">
-                  <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                    <div class="pb-full relative h-0">
-                      <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                        <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/table.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                  </a>
-
+                </div>
+              </a>`
+                 }
+                 console.log(galleryhtml);
+                 gallery.innerHTML = galleryhtml;
+                })                  
+              </script>
+              <div id="gallery" style="display:none" class="grid gap-4 grid-flow-row-dense p-1 grid-cols-1 md:grid-cols-4 w-full justify-around mt-16">
               </div>
             </div>
           </div>
@@ -667,11 +603,11 @@
                 Contact
               </div>
               <div class="sm:block content-center">
-                <h1 class="text-black font-serif text-2xl h-16 sm:h-10 flex align-center justify-center content-center items-center py-5 font-medium leading-6">
-                  Keith and Kylee
+                <h1 class="text-black font-serif text-4xl h-16 sm:h-10 flex align-center justify-center content-center items-center pt-5 font-medium leading-6">
+                  Contact
                 </h1>
 
-              <div class="flex flex-col md:flex-row min-w-max justify-around mt-16 mx-auto">
+              <div class="flex flex-col md:flex-row min-w-max justify-around mt-4 mx-auto">
 
                 <div class="block p-4 text-blue">
                   <p class="hidden font-serif text-bold text-4xl">Keith Foster</p>
