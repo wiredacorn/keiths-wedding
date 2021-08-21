@@ -565,6 +565,9 @@ video {
 .mb-1 {
 	margin-bottom: 0.25rem;
 }
+.mb-4 {
+	margin-bottom: 1rem;
+}
 .mt-8 {
 	margin-top: 2rem;
 }
