@@ -865,14 +865,17 @@ video {
 .pt-24 {
 	padding-top: 6rem;
 }
-.pb-full {
-	padding-bottom: 100%;
+.pb-96 {
+	padding-bottom: 24rem;
 }
 .pt-32 {
 	padding-top: 8rem;
 }
 .pb-17\% {
 	padding-bottom: 17%;
+}
+.pb-full {
+	padding-bottom: 100%;
 }
 .pt-5 {
 	padding-top: 1.25rem;
