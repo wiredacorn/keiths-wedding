@@ -111,7 +111,18 @@
                 <!-- Half Width -->
                 <div id="successMsgAttending" class="hidden text-center"><span class="text-4xl lg:text-6xl w-max font-serif text-black">Thank you!</span><br>We will see you soon!</div>
                 <div id="successMsgNotAttending" class="hidden text-center"><span class="text-4xl lg:text-6xl w-max font-serif text-black">Thank you!</span><br>Sorry you won't make it.<br>Check back soon for pictures!</div>
-                <div id="weddingfull" style="" class="text-center"><span class="text-4xl lg:text-6xl w-max font-serif text-black">May the Force be with you.</span><br>Check back soon for pictures of the wedding.<img src="img/Han-Leia.jpg"></div>
+                <div id="weddingfull" style="" class="text-center"><span class="text-4xl lg:text-6xl w-max font-serif text-black">May the Force be with you.</span><img src="img/Han-Leia.jpg"></div>
+                <div>
+                  <div class="bg-blue max-w-max mx-auto " style="padding:5px">
+                  <a href="https://jlphotovideo.pixieset.com/guestlogin/kyliekeith/?return=%2Fkyliekeith%2F" id="form-submit-btn" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-8 py-2 block">
+                    View Gallery
+                  </a>
+                  </div>
+                  <p class="pt-4 w-full text-center">Password: kylie</p>
+                </div>
+
+                
+
                 <div id="formArea" class="hidden">
                   <div id="rsvpAnchor" style="margin-top:-175px;height:175px;"></div>
                     <p class="tracking-widest font-light uppercase text-2xl font-sans text-blue">
@@ -528,37 +539,37 @@
         </div>
 
           <script>
-          L.mapbox.accessToken = "pk.eyJ1Ijoid2lyZWRhY29ybiIsImEiOiJja3B0aXp1cnUwMTMyMm5tem9kZzB4Y3RhIn0.iNBSsbngJTTMFETfjO-Diw"
-          var geojson = [
-          {
-            "type": "FeatureCollection",
-            "features": [{ "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-111.78994538030375, 33.416857115164674]
-                },
-                "properties": {
-                    "title": "Garden Tuscana Reception Hall",
-                    "description": "1940 E Main St <br> Mesa, AZ 85203",
-                    "marker-size": "medium",
-                    "marker-symbol": "heart",
-                    "marker-color": "#486d84",
-                    "stroke": "#555555",
-                    "stroke-opacity": 0.0,
-                    "stroke-width": 0,
-                    "fill": "#486d84",
-                    "fill-opacity": 1
-                }
-              }]
-          }
-          ];
-          
-          var mapGeo = L.mapbox.map('map_geo')
-            .setView([33.416857115164674, -111.78994538030375], 13)
-            .addLayer(L.mapbox.styleLayer('mapbox://styles/wiredacorn/ckptj5dxh1vdt19ntqfs0pl6m'));
-          
-          var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapGeo);
-          mapGeo.scrollWheelZoom.disable();
+            L.mapbox.accessToken = "pk.eyJ1Ijoid2lyZWRhY29ybiIsImEiOiJja3B0aXp1cnUwMTMyMm5tem9kZzB4Y3RhIn0.iNBSsbngJTTMFETfjO-Diw"
+            var geojson = [
+            {
+              "type": "FeatureCollection",
+              "features": [{ "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-111.78994538030375, 33.416857115164674]
+                  },
+                  "properties": {
+                      "title": "Garden Tuscana Reception Hall",
+                      "description": "1940 E Main St <br> Mesa, AZ 85203",
+                      "marker-size": "medium",
+                      "marker-symbol": "heart",
+                      "marker-color": "#486d84",
+                      "stroke": "#555555",
+                      "stroke-opacity": 0.0,
+                      "stroke-width": 0,
+                      "fill": "#486d84",
+                      "fill-opacity": 1
+                  }
+                }]
+            }
+            ];
+            
+            var mapGeo = L.mapbox.map('map_geo')
+              .setView([33.416857115164674, -111.78994538030375], 13)
+              .addLayer(L.mapbox.styleLayer('mapbox://styles/wiredacorn/ckptj5dxh1vdt19ntqfs0pl6m'));
+            
+            var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapGeo);
+            mapGeo.scrollWheelZoom.disable();
           </script>
 
           <!-- End Map Section -->
@@ -577,39 +588,21 @@
           </div>
           <!-- End Registry -->
 
+          <!-- Gallery -->
+          <div class="bg-blue-light" style="">
+            <div class="w-8/12 mx-auto text-center pt-24 pb-24 disable-pb-4">
 
-          <!-- Gallery Area -->
-          <div id="galleryArea" class="bg-blue-light font-sans mx-8" style="">
-            <div class="w-8/12 mx-auto text-white py-24">
-
-              <div class="text-6xl w-full text-center font-serif text-blue">
-                Gallery Comming Soon
-              </div>
-              <script>
-                document.addEventListener('DOMContentLoaded', function(event) {
-                 var gallery = document.getElementById("gallery");
-                 galleryhtml = ''
-                 for (let i = 1; i < 30; i++) {
-                   galleryhtml += 
-                    `<a href="./img/gallery/img-`+i+`.jpg" class="" data-gallery="gallery1">
-                <div class="frame bg-white p-6% pb-17% shadow hover:shadow-lg shadow hover:shadow-lg">
-                  <div class="pb-full relative h-0">
-                    <div class="absolute radius-0 h-full w-full top-0 bottom-0 left-0 right-0">
-                      <img class="absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover" src="./img/gallery/img-`+i+`.jpg" />
-                    </div>
+                  <div class="bg-blue max-w-max mx-auto " style="padding:5px">
+                    <a href="https://jlphotovideo.pixieset.com/guestlogin/kyliekeith/?return=%2Fkyliekeith%2F" id="form-submit-btn" class="font-fancy fancy-border italic text-white tracking-widest font-thin px-8 py-2 block">
+                      View Gallery
+                    </a>
                   </div>
-                </div>
-              </a>`
-                 }
-                 console.log(galleryhtml);
-                 gallery.innerHTML = galleryhtml;
-                })                  
-              </script>
-              <div id="disable-gallery" style="display:none;" class="grid gap-4 grid-flow-row-dense p-1 grid-cols-1 md:grid-cols-4 w-full justify-around mt-16">
-              </div>
+                  <p class="pt-4">Password: kylie</p>
+
             </div>
           </div>
           <!-- End Gallery -->
+
 
 
           <!-- Contact Area -->
